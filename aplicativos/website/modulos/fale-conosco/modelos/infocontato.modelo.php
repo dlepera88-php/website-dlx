@@ -56,6 +56,12 @@ class InfoContato extends BaseModeloRegistro {
         ]);
     } // Fim do método listarRedesSociais
 
+    /**
+     * Listar informações de contato comuns que não sejam redes sociais.
+     *
+     * @return Retorna um array com as informações das de contato, ou um array vazio, caso nenhuma informação
+     * de contato tenha sido encontrada.
+     */
     public function listarInfosContato() {
         return $this->listar((object)[
             'where' => ["{$this->getBdPrefixo()}publicar = 1", "{$this->getBdPrefixo()}rede_social = 0"]
