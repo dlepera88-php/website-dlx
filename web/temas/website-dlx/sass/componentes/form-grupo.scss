@@ -1,0 +1,17 @@
+// Configurações ------------------------------------------------------------ //
+$seletor: '.form-grupo';
+
+// Componentes -------------------------------------------------------------- //
+#{$seletor} {
+    // Visual
+    border: 0;
+
+    // Margens
+    padding: 0;
+    margin-top: 20px;
+
+    > .form-legenda {
+        // Margens
+        margin-bottom: 8px;
+    }
+}
