@@ -43,4 +43,22 @@ class InfoContato extends BaseModeloRegistro {
         $this->bd_lista->join('dlx_websitedlx_tipos_infos', 'T', "(T.tipo_info_id = {$this->getBdPrefixo()}tipo)", 'INNER');
         $this->selecionarPK($pk);
     } // Fim do método __construct
+
+    /**
+     * Listar apenas as redes sociais
+     *
+     * @return array Retorna um array com as informações das redes sociais, ou um array vazio, caso nenhuma
+     * rede social tenha sido encontrada.
+     */
+    public function listarRedesSociais() {
+        return $this->listar((object)[
+            'where' => ["{$this->getBdPrefixo()}publicar = 1", "{$this->getBdPrefixo()}rede_social = 1"]
+        ]);
+    } // Fim do método listarRedesSociais
+
+    public function listarInfosContato() {
+        return $this->listar((object)[
+            'where' => ["{$this->getBdPrefixo()}publicar = 1", "{$this->getBdPrefixo()}rede_social = 0"]
+        ]);
+    } // Fim do método listarInfosContato
 } // Fim do modelo InfoContato
