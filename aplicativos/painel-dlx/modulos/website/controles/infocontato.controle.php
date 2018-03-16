@@ -67,7 +67,7 @@ class InfoContato extends PainelDLX {
         $this->gerarLista(
             sprintf(AjdConstrutorSQL::SQL_CAMPO_COM_ALIAS, 'info_contato_id', $this->visao->traduzir('ID', 'painel-dlx')) . ',' .
             sprintf(AjdConstrutorSQL::SQL_CAMPO_COM_ALIAS, 'tipo_info_nome', $this->visao->traduzir('Tipo', 'website-dlx')) . ',' .
-            sprintf(AjdConstrutorSQL::SQL_CAMPO_COM_ALIAS, 'info_contato_valor', $this->visao->traduzir('Informação', 'website-dlx')) . ',' .
+            sprintf(AjdConstrutorSQL::SQL_CAMPO_COM_ALIAS, "CASE WHEN info_contato_valor <> info_contato_exibicao THEN CONCAT(CONCAT(COALESCE(tipo_info_prefixo, ''), info_contato_valor), '<br>', info_contato_exibicao) ELSE info_contato_exibicao END", $this->visao->traduzir('Informação', 'website-dlx')) . ',' .
             sprintf(AjdConstrutorSQL::SQL_CASE_SIM_NAO, 'tipo_info_rede_social', $this->visao->traduzir('Rede Social?', 'website-dlx')) . ',' .
             sprintf(AjdConstrutorSQL::SQL_CASE_SIM_NAO, 'info_contato_publicar', $this->visao->traduzir('Ativo?', 'painel-dlx')),
             ['order_by' => 'tipo_info_rede_social, tipo_info_nome, info_contato_valor']

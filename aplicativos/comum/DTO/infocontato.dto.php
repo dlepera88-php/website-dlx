@@ -45,6 +45,12 @@ trait InfoContato {
      */
     protected $valor;
 
+    /**
+     * Forma de exibir o valor dessa informação de contato para melhor entendimento humano.
+     * @var string
+     */
+    protected $exibicao;
+
     public function getTipo() {
         return $this->tipo;
     }
@@ -62,5 +68,13 @@ trait InfoContato {
 
     public function setValor($valor) {
         $this->valor = filter_var($valor, FILTER_SANITIZE_STRING, FILTER_FLAG_EMPTY_STRING_NULL);
+    }
+
+    public function getExibicao() {
+        return $this->exibicao;
+    }
+
+    public function setExibicao($exibicao) {
+        $this->exibicao = filter_var($exibicao, FILTER_SANITIZE_STRING, FILTER_FLAG_EMPTY_STRING_NULL);
     }
 }

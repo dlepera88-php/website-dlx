@@ -44,6 +44,7 @@ CREATE TABLE dlx_websitedlx_infos_contato (
     info_contato_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     info_contato_tipo INT NOT NULL,
     info_contato_valor VARCHAR(255) NOT NULL,
+    info_contato_exibicao VARCHAR(255),
     info_contato_publicar BOOL NOT NULL DEFAULT 1,
     info_contato_delete BOOL NOT NULL DEFAULT 0,
     CONSTRAINT FK_info_contato_tipo FOREIGN KEY (info_contato_tipo) REFERENCES dlx_websitedlx_tipos_infos (tipo_info_id)

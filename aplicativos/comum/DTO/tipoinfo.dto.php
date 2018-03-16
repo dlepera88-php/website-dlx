@@ -93,7 +93,7 @@ trait TipoInfo {
     }
 
     public function setValidacao($validacao) {
-        $this->validacao = filter_var($validacao, FILTER_SANITIZE_STRING);
+        $this->validacao = filter_var($validacao, FILTER_SANITIZE_STRING, FILTER_FLAG_EMPTY_STRING_NULL);
     }
 
     public function getMask() {
@@ -101,6 +101,6 @@ trait TipoInfo {
     }
 
     public function setMask($mask) {
-        $this->mask = filter_var($mask);
+        $this->mask = filter_var($mask, FILTER_DEFAULT, FILTER_FLAG_EMPTY_STRING_NULL);
     }
 }

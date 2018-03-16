@@ -70,6 +70,13 @@ $tipo_info = $params['modelo:tipo-info'];
                 'required'  => 'required'
             ]) ?>
         </p>
+
+        <p class="form-paragr">
+            <?php echo HTMLForm::campoGeral('texto', 'exibicao', 'exibicao', $info_contato->getExibicao(), $this->traduzir('Exibição', 'website-dlx'), $this->traduzir('Obs: Ao alterar o campo <b>Valor</b>, esse será alterado automaticamente.', 'website-dlx'), [
+                'maxlength' => 255,
+                'required'  => 'required'
+            ]) ?>
+        </p>
     </fieldset>
 
     <p class="form-paragr">
@@ -106,6 +113,10 @@ $tipo_info = $params['modelo:tipo-info'];
                 config.prefixo == '' ? $valor.removeAttr('data-prefixo') : $valor.attr('data-prefixo', config.prefixo);
             } // Fim if
         }, 'json');
+    });
+
+    $('#txt-valor').on('change.__script', function () {
+        $('#txt-exibicao').val($(this).val());
     });
 </script>
 [/DLX-SCRIPTS]

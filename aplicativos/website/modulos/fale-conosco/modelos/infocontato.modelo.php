@@ -52,7 +52,7 @@ class InfoContato extends BaseModeloRegistro {
      */
     public function listarRedesSociais() {
         return $this->listar((object)[
-            'where' => ["{$this->getBdPrefixo()}publicar = 1", "{$this->getBdPrefixo()}rede_social = 1"]
+            'where' => ["{$this->getBdPrefixo()}publicar = 1", 'tipo_info_rede_social = 1']
         ]);
     } // Fim do método listarRedesSociais
 
@@ -64,7 +64,7 @@ class InfoContato extends BaseModeloRegistro {
      */
     public function listarInfosContato() {
         return $this->listar((object)[
-            'where' => ["{$this->getBdPrefixo()}publicar = 1", "{$this->getBdPrefixo()}rede_social = 0"]
+            'where' => ["{$this->getBdPrefixo()}publicar = 1", 'tipo_info_rede_social = 0']
         ]);
     } // Fim do método listarInfosContato
 } // Fim do modelo InfoContato
