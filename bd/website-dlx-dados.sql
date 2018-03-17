@@ -12,7 +12,7 @@ INSERT INTO dlx_paineldlx_modulos (modulo_pai, modulo_nome, modulo_descr, modulo
     (@ID_MODULO, 'Informações de contato', 'Informações de contato e redes sociais.', 'website/informacoes-de-contato', 1);
 
 -- CRIAR REGISTRO DE CONFIGURAÇÕES DO WEBSITE
-INSERT INTO dlx_websitedlx_configuracoes VALUES ('padrao');
+INSERT INTO dlx_websitedlx_configuracoes VALUES ('padrao', '');
 
 -- INCLUIR OS TIPOS DE INFORMAÇÕES DE CONTATO MAIS USADOS
 INSERT INTO dlx_websitedlx_tipos_infos (tipo_info_nome, tipo_info_prefixo, tipo_info_rede_social, tipo_info_validacao, tipo_info_mask) VALUES
