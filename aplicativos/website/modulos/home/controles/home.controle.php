@@ -46,6 +46,8 @@ class Home extends WebsiteDLX {
 
         # Parâmetros
         $this->visao->tituloPagina($this->visao->traduzir('Página inicial', 'painel-dlx'));
+        $this->visao->adicionarParam('conf:classes-container', 'pg-home');
+
         $this->visao->mostrarConteudo();
     } // Fim do método paginaIncial
 }// Fim do controle Home
