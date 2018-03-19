@@ -48,10 +48,10 @@ abstract class WebsiteDLX extends BaseControleRegistro {
         $tema = new Tema($config->getTema());
         
         # Adicionar templates fixos
-        $this->visao->adicionarTemplate('comum/visoes/topo');
+        $this->visao->adicionarTemplate('comum/visoes/topo', -1, true, true);
         $this->visao->adicionarTemplate('comum/visoes/menu');
         $this->visao->adicionarTemplate('comum/visoes/mensagens_usuario');
-        $this->visao->adicionarTemplate('comum/visoes/rodape');
+        $this->visao->adicionarTemplate('comum/visoes/rodape', -1, true, true);
 
         # Adicionar o suporte ao jQuery a esse aplicativo
         $this->visao->adicionarJS('web/js/jquery-3.2.1.min.js', -1);
