@@ -29,12 +29,13 @@
  * SOFTWARE.
  */
 
+$idioma = filter_input(INPUT_GET, 'dlx-idioma');
 $config = [
     'aplicativo' => [
-        'nome'   => 'Brasília Apart Hotéis',
-        'tema'   => 'apart-hoteis',
-        'versao' => 'v0.17.11',
-        'idioma' => 'en_US',
+        'nome'    => 'Brasília Apart Hotéis',
+        'home'    => "{$idioma}/",
+        'versao'  => 'v0.17.11',
+        'idioma'  => $idioma,
         'favicon' => 'web/imgs/apart-hoteis.ico'
     ],
 

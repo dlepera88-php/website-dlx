@@ -34,6 +34,7 @@ namespace Geral\Controles;
 use Comum\Modelos\Configuracoes;
 use PainelDLX\Desenvolvedor\Modelos\Modulo;
 use PainelDLX\Desenvolvedor\Modelos\Tema;
+use Website\FaleConosco\Modelos\InfoContato;
 
 abstract class WebsiteDLX extends BaseControleRegistro {
     /**
@@ -46,6 +47,7 @@ abstract class WebsiteDLX extends BaseControleRegistro {
         $modulo = new Modulo();
         $config = new Configuracoes();
         $tema = new Tema($config->getTema());
+        $info_contato = new InfoContato();
         
         # Adicionar templates fixos
         $this->visao->adicionarTemplate('comum/visoes/topo', -1, true, true);
@@ -59,6 +61,8 @@ abstract class WebsiteDLX extends BaseControleRegistro {
 
         # Parâmetros comuns para todas as visões
         $this->visao->adicionarParam('html:itens-menu', $modulo->itensMenu());
+        $this->visao->adicionarParam('lista:infos-contato', $info_contato->listarInfosContato());
+        $this->visao->adicionarParam('lista:redes-sociais', $info_contato->listarRedesSociais());
 
         # Modificar a página mestra de acordo com a preferência do usuário
         $this->visao->setTema($tema->getID());
