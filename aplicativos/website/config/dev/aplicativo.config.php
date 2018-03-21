@@ -1,11 +1,11 @@
 <?php
 /**
- * website-dlx
- * @version: v1.17.11
+ * painel-dlx
+ * @version: v1.17.08
  * @author: Diego Lepera
  *
- * Created by Diego Lepera on 2017-11-23. Please report any bug at
- * https://github.com/dlepera88-php/website-dlx/issues
+ * Created by Diego Lepera on 2017-07-28. Please report any bug at
+ * https://github.com/dlepera88-php/framework-dlx/issues
  *
  * The MIT License (MIT)
  * Copyright (c) 2017 Diego Lepera http://diegolepera.xyz/
@@ -30,17 +30,12 @@
  */
 
 $idioma = filter_input(INPUT_GET, 'dlx-idioma');
-$config = [
+$config['aplicativo'] = [
     'aplicativo' => [
         'nome'    => 'Brasília Apart Hotéis',
         'home'    => $idioma ? "{$idioma}/" : '',
         'versao'  => 'v0.17.11',
         'idioma'  => $idioma,
         'favicon' => 'web/imgs/apart-hoteis.ico'
-    ],
-
-    'bd' => [
-        'dsn'   => 'mysql:host=localhost;dbname=frameworkdlx_dev',
-        'senha' => '$d5Ro0t'
     ]
 ];
