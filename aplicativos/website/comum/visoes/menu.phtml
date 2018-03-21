@@ -42,14 +42,14 @@ define('HTML_MENU_LINK', '<a href="%s" class="link">%s</a>')
     <ul class="menu-principal">
         <?php foreach ($params['html:itens-menu'] as $item_menu) : ?>
             <li class="item">
-                <?php printf(HTML_MENU_LINK, $item_menu['LINK'], $item_menu['TEXTO']);
+                <?php printf(HTML_MENU_LINK, $item_menu['LINK'], $this->traduzir($item_menu['TEXTO'], 'website-dlx'));
 
                 if (array_key_exists('SUBMENU', $item_menu)) : ?>
                     <ul class="sub-menu">
                         <?php foreach ($item_menu['SUBMENU'] as $item_submenu) : ?>
                             <li class="item">
                                 <?php
-                                    printf(HTML_MENU_LINK, $item_submenu['LINK'], $item_submenu['TEXTO']);
+                                    printf(HTML_MENU_LINK, $item_submenu['LINK'], $this->traduzir($item_submenu['TEXTO'], 'website-dlx'));
                                     printf('<span class="descr">%s</span>', $item_submenu['DESCR'])
                                 ?>
                             </li>
