@@ -35,7 +35,6 @@ use DLX\Ajudantes\ConstrutorSQL as AjdConstrutorSQL;
 use Geral\Controles\PainelDLX;
 use Geral\Controles\RegistroConsulta;
 use Geral\Controles\RegistroEdicao;
-use PainelDLX\Desenvolvedor\Modelos\Tema;
 
 class AssuntoContato extends PainelDLX {
     use RegistroConsulta, RegistroEdicao;
