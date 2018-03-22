@@ -31,11 +31,9 @@
 
 $idioma = filter_input(INPUT_GET, 'dlx-idioma');
 $config['aplicativo'] = [
-    'aplicativo' => [
-        'nome'    => 'Brasília Apart Hotéis',
-        'home'    => $idioma ? "{$idioma}/" : '',
-        'versao'  => 'v0.17.11',
-        'idioma'  => $idioma,
-        'favicon' => 'web/imgs/apart-hoteis.ico'
-    ]
+    'nome'    => 'Brasília Apart Hotéis',
+    'home'    => $idioma ? "{$idioma}/" : '',
+    'versao'  => 'v0.17.11',
+    'idioma'  => $idioma,
+    'favicon' => 'web/imgs/apart-hoteis.ico'
 ];
