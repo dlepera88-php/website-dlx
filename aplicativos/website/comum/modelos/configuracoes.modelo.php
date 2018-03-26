@@ -31,7 +31,7 @@
 
 namespace Comum\Modelos;
 
-use Comum\DAO\ConfigSite;
+use Comum\DTO\ConfigSite;
 use Geral\Modelos\BaseModeloRegistro;
 
 class Configuracoes extends BaseModeloRegistro {

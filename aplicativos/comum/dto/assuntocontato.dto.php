@@ -29,34 +29,50 @@
  * SOFTWARE.
  */
 
-namespace Comum\DAO;
+namespace Comum\DTO;
 
-trait ConfigSite {
+trait AssuntoContato {
     /**
-     * Identificador do tema a ser carregado para o website
+     * Texto do assunto
      * @var string
      */
-    protected $tema = 'padrao';
+    protected $texto;
 
     /**
-     * Email padrão para envio de contatos
+     * Cor de exibição desse assunto
      * @var string
      */
-    protected $email_contato;
+    protected $cor = '#000000';
 
-    public function getTema() {
-        return $this->tema;
-    }
+    /**
+     * Email que deverá receber os contatos referentes a esse assunto
+     * @var string
+     */
+    protected $email;
 
-    public function setTema($tema) {
-        $this->tema = filter_var($tema, FILTER_SANITIZE_STRING);
-    }
-
-	public function getEmailContato() {
-		return $this->email_contato;
+	public function getTexto() {
+		return $this->texto;
 	}
 
-	public function setEmailContato($email_contato) {
-		$this->email_contato = filter_var($email_contato, FILTER_VALIDATE_EMAIL, FILTER_NULL_ON_FAILURE);
+	public function setTexto($texto) {
+		$this->texto = filter_var($texto, FILTER_SANITIZE_STRING, FILTER_FLAG_EMPTY_STRING_NULL);
+	}
+
+	public function getCor() {
+		return $this->cor;
+	}
+
+	public function setCor($cor) {
+		$this->cor = filter_var($cor, FILTER_VALIDATE_REGEXP, [
+            'options' => ['regexp' => '~^#[0-9a-fA-F]{3,6}$~', 'default' => '#000']
+        ]);
+	}
+
+	public function getEmail() {
+		return $this->email;
+	}
+
+	public function setEmail($email) {
+		$this->email = filter_var($email, FILTER_VALIDATE_EMAIL, FILTER_NULL_ON_FAILURE);
 	}
 }

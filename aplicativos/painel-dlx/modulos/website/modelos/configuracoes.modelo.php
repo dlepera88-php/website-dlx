@@ -31,7 +31,7 @@
 
 namespace PainelDLX\Website\Modelos;
 
-use Comum\DAO\ConfigSite;
+use Comum\DTO\ConfigSite;
 use DLX\Ajudantes\Visao as AjdVisao;
 use Geral\Modelos\BaseModeloRegistro;
 use Geral\Modelos\RegistroConsulta;

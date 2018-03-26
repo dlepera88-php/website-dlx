@@ -31,14 +31,14 @@
 
 namespace PainelDLX\Website\Modelos;
 
-use Comum\DAO\AssuntoContato as AssuntoContatoDAO;
+use Comum\DTO\AssuntoContato as AssuntoContatoDTO;
 use DLX\Ajudantes\Visao as AjdVisao;
 use Geral\Modelos\BaseModeloRegistro;
 use Geral\Modelos\RegistroConsulta;
 use Geral\Modelos\RegistroEdicao;
 
 class AssuntoContato extends BaseModeloRegistro {
-    use RegistroConsulta, RegistroEdicao, AssuntoContatoDAO;
+    use RegistroConsulta, RegistroEdicao, AssuntoContatoDTO;
 
     public function __construct($pk = null) {
         parent::__construct('dlx_websitedlx_assuntos_contato', 'assunto_contato_');

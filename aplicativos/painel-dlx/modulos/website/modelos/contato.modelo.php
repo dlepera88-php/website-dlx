@@ -31,7 +31,7 @@
 
 namespace PainelDLX\Website\Modelos;
 
-use Comum\DAO\Contato as ContatoDAO;
+use Comum\DTO\Contato as ContatoDTO;
 use DLX\Ajudantes\Visao as AjdVisao;
 use DLX\Excaceo\DLX as DLXExcecao;
 use Geral\Modelos\BaseModeloRegistro;
@@ -39,7 +39,7 @@ use Geral\Modelos\RegistroConsulta;
 use Geral\Modelos\RegistroEdicao;
 
 class Contato extends BaseModeloRegistro {
-    use RegistroConsulta, RegistroEdicao, ContatoDAO;
+    use RegistroConsulta, RegistroEdicao, ContatoDTO;
 
     public function __construct($pk = null) {
         parent::__construct('dlx_websitedlx_contatos', 'contato_');

@@ -31,12 +31,12 @@
 
 namespace Website\FaleConosco\Modelos;
 
-use Comum\DAO\AssuntoContato as AssuntoContatoDAO;
+use Comum\DTO\AssuntoContato as AssuntoContatoDTO;
 use Geral\Modelos\BaseModeloRegistro;
 use Geral\Modelos\RegistroConsulta;
 
 class AssuntoContato extends BaseModeloRegistro {
-    use RegistroConsulta, AssuntoContatoDAO;
+    use RegistroConsulta, AssuntoContatoDTO;
 
     public function __construct($pk = null) {
         parent::__construct('dlx_websitedlx_assuntos_contato', 'assunto_contato_');
