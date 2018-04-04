@@ -1,11 +1,11 @@
 <?php
 /**
- * painel-dlx
- * @version: v1.17.08
+ * website-dlx
+ * @version: v1.17.11
  * @author: Diego Lepera
  *
  * Created by Diego Lepera on 2017-07-28. Please report any bug at
- * https://github.com/dlepera88-php/framework-dlx/issues
+ * https://github.com/dlepera88-php/website-dlx/issues
  *
  * The MIT License (MIT)
  * Copyright (c) 2017 Diego Lepera http://diegolepera.xyz/
@@ -29,8 +29,13 @@
  * SOFTWARE.
  */
 
-$config['bd'] = [
-    'dsn'   => 'mysql:host=localhost;dbname=bsbaparthoteis_dev',
-    'usuario' => 'bsbapart',
-    'senha' => 'H0t31$'
-];
+if(!isset($params)) {
+    $params = $this->obterParams();
+} // Fim if
+
+$inst = $params['modelo:infos-inst'];
+?>
+
+[DLX-CONTEUDO]
+<?php echo $inst->getTexto() ?>
+[/DLX-CONTEUDO]

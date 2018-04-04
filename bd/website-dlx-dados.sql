@@ -24,3 +24,11 @@ INSERT INTO dlx_websitedlx_tipos_infos (tipo_info_nome, tipo_info_prefixo, tipo_
     ('Instagram', 'https://instagram.com/', 1, NULL, NULL),
     ('Twitter', 'https://twitter.com/', 1, NULL, NULL),
     ('YouTube', NULL, 1, NULL, NULL);
+
+-- ADICIONAR AS INFORMAÇÕES INSTITUCIONAIS PADRÃO NO IDIOMA br (PT-BR)
+INSERT INTO dlx_websitedlx_institucional (instit_idioma, instit_texto, instit_resumo) VALUES
+    (
+        'br',
+        '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>',
+        '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'
+    );

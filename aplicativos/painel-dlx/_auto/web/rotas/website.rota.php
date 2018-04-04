@@ -242,3 +242,47 @@ $__MODULO = 'Website';
     'controle'   => 'InfoContato',
     'acao'       => 'excluir'
 ], 'post');
+
+// Informações institucionais ------------------------------------------------------------------ //
+\DLX::$dlx->adicionarRota('^%home%website/institucional/?$', [
+    'aplicativo' => $__APLICATIVO,
+    'modulo'     => $__MODULO,
+    'controle'   => 'Institucional',
+    'acao'       => 'mostrarLista'
+]);
+
+\DLX::$dlx->adicionarRota('^%home%website/institucional/novo/?$', [
+    'aplicativo' => $__APLICATIVO,
+    'modulo'     => $__MODULO,
+    'controle'   => 'Institucional',
+    'acao'       => 'mostrarForm'
+]);
+
+\DLX::$dlx->adicionarRota('^%home%website/institucional/editar/[a-z]{2}(?:[_-][A-Za-z]{2})?/?$', [
+    'aplicativo' => $__APLICATIVO,
+    'modulo'     => $__MODULO,
+    'controle'   => 'Institucional',
+    'acao'       => 'mostrarForm',
+    'params'     => '/-/-/-/:idioma'
+]);
+
+\DLX::$dlx->adicionarRota('^%home%website/institucional/inserir$', [
+    'aplicativo' => $__APLICATIVO,
+    'modulo'     => $__MODULO,
+    'controle'   => 'Institucional',
+    'acao'       => 'inserir'
+], 'post');
+
+\DLX::$dlx->adicionarRota('^%home%website/institucional/salvar$', [
+    'aplicativo' => $__APLICATIVO,
+    'modulo'     => $__MODULO,
+    'controle'   => 'Institucional',
+    'acao'       => 'salvar'
+], 'post');
+
+\DLX::$dlx->adicionarRota('^%home%website/institucional/excluir$', [
+    'aplicativo' => $__APLICATIVO,
+    'modulo'     => $__MODULO,
+    'controle'   => 'Institucional',
+    'acao'       => 'excluir'
+], 'post');

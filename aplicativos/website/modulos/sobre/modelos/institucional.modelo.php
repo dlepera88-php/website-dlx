@@ -1,11 +1,11 @@
 <?php
 /**
- * painel-dlx
- * @version: v1.17.08
+ * website-dlx
+ * @version: v1.17.11
  * @author: Diego Lepera
  *
- * Created by Diego Lepera on 2017-07-28. Please report any bug at
- * https://github.com/dlepera88-php/framework-dlx/issues
+ * Created by Diego Lepera on 2017-11-23. Please report any bug at
+ * https://github.com/dlepera88-php/website-dlx/issues
  *
  * The MIT License (MIT)
  * Copyright (c) 2017 Diego Lepera http://diegolepera.xyz/
@@ -29,8 +29,17 @@
  * SOFTWARE.
  */
 
-$config['bd'] = [
-    'dsn'   => 'mysql:host=localhost;dbname=bsbaparthoteis_dev',
-    'usuario' => 'bsbapart',
-    'senha' => 'H0t31$'
-];
+namespace Website\Sobre\Modelos;
+
+use Comum\DTO\Institucional as InstitucionalDTO;
+use Geral\Modelos\BaseModeloRegistro;
+use Geral\Modelos\RegistroConsulta;
+
+class Institucional extends BaseModeloRegistro {
+    use RegistroConsulta, InstitucionalDTO;
+
+    public function __construct($idioma = null) {
+        parent::__construct('dlx_websitedlx_institucional', 'instit_');
+        $this->selecionarPK($idioma);
+    } // Fim do método __construct
+} // Fim do modelo Institucional

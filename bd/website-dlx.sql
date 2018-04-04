@@ -49,3 +49,12 @@ CREATE TABLE dlx_websitedlx_infos_contato (
     info_contato_delete BOOL NOT NULL DEFAULT 0,
     CONSTRAINT FK_info_contato_tipo FOREIGN KEY (info_contato_tipo) REFERENCES dlx_websitedlx_tipos_infos (tipo_info_id)
 ) ENGINE=INNODB;
+
+-- INFORMAÇÕES INSTITUCIONAIS
+CREATE TABLE dlx_websitedlx_institucional (
+    instit_idioma VARCHAR(5) NOT NULL PRIMARY KEY,
+    instit_texto LONGTEXT,
+    instit_resumo TEXT,
+    instit_publicar BOOL NOT NULL DEFAULT 1,
+    instit_delete BOOL NOT NULL DEFAULT 0
+) ENGINE=INNODB;

@@ -1,7 +1,7 @@
 <?php
 /**
  * website-dlx
- * @version: v1.17.11
+ * @version: v1.17.08
  * @author: Diego Lepera
  *
  * Created by Diego Lepera on 2017-11-23. Please report any bug at
@@ -29,39 +29,35 @@
  * SOFTWARE.
  */
 
-$__APLICATIVO = 'Website';
-$__MODULO = 'Home';
+namespace Website\Sobre\Controles;
 
-// Página Inicial ----------------------------------------------------------- //
-\DLX::$dlx->adicionarRota('^%home%/?$', [
-    'aplicativo' => $__APLICATIVO,
-    'modulo'     => $__MODULO,
-    'controle'   => 'Home',
-    'acao'       => 'paginaInicial'
-]);
+use Geral\Controles\WebsiteDLX;
+use Geral\Controles\RegistroConsulta;
 
-// Sobre --------------------------------------------------------------------------------------- //
-$__MODULO = 'Sobre';
-\DLX::$dlx->adicionarRota('^%home%sobre/?$', [
-    'aplicativo' => $__APLICATIVO,
-    'modulo'     => $__MODULO,
-    'controle'   => 'Institucional',
-    'acao'       => 'informacoesInstitucionais'
-]);
+class Institucional extends WebsiteDLX {
+    use RegistroConsulta;
 
-// Contato ------------------------------------------------------------------------------------- //
-$__MODULO = 'FaleConosco';
+    public function __construct() {
+        parent::__construct(dirname(__DIR__), new \Website\Sobre\Modelos\Institucional(), 'website/institucional');
+    } // Fim do método __construct
 
-\DLX::$dlx->adicionarRota('^%home%fale-conosco/?$', [
-    'aplicativo' => $__APLICATIVO,
-    'modulo'     => $__MODULO,
-    'controle'   => 'Contato',
-    'acao'       => 'mostrarForm'
-]);
+    /**
+     * Mostrar as informações institucionais.
+     *
+     * @return void
+     */
+    protected function informacoesInstitucionais() {
+        # Selecionar as informações institucionais de acordo com o idioma configurado.
+        $this->modelo->selecionarPK(\DLX::$dlx->config('aplicativo', 'idioma'));
 
-\DLX::$dlx->adicionarRota('^%home%fale-conosco/enviar-contato$', [
-    'aplicativo' => $__APLICATIVO,
-    'modulo'     => $__MODULO,
-    'controle'   => 'Contato',
-    'acao'       => 'enviarContato'
-], 'post');
+        # Visão
+        $this->visao->adicionarTemplate('sobre');
+
+        # Parâmetros
+        $this->visao->tituloPagina($this->visao->traduzir('Quem somos?', 'website-dlx'));
+        $this->visao->adicionarParam('modelo:infos-inst', $this->modelo);
+        $this->visao->adicionarClassesExtras('#container', 'infos-inst');
+
+        $this->visao->mostrarConteudo();
+    } // Fim do método informacoesIntitucionais
+}// Fim do controle Institucional
