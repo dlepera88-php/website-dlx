@@ -36,6 +36,12 @@ if(!isset($params)) {
 $inst = $params['modelo:infos-inst'];
 ?>
 
+<?php if ($inst->getResumo()) : ?>
+    [DLX-HEAD]
+    <meta name="description" content="<?php echo strip_tags($inst->getResumo()) ?>">
+    [/DLX-HEAD]
+<?php endif ?>
+
 [DLX-CONTEUDO]
 <?php echo $inst->getTexto() ?>
 [/DLX-CONTEUDO]
