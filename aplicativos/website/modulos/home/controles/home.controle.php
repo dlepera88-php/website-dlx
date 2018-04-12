@@ -31,7 +31,6 @@
 
 namespace Website\Home\Controles;
 
-use DLX\Ajudantes\ConstrutorSQL as AjdConstrutorSQL;
 use Geral\Controles\WebsiteDLX;
 
 class Home extends WebsiteDLX {
@@ -46,8 +45,8 @@ class Home extends WebsiteDLX {
 
         # Parâmetros
         $this->visao->tituloPagina($this->visao->traduzir('Página inicial', 'painel-dlx'));
-        $this->visao->adicionarParam('conf:classes-container', 'pg-home');
-
+        $this->visao->adicionarClassesExtras('body', 'pg-home');
+        
         $this->visao->mostrarConteudo();
     } // Fim do método paginaIncial
 }// Fim do controle Home
