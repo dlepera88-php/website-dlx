@@ -44,7 +44,10 @@ class Home extends WebsiteDLX {
         $this->visao->adicionarTemplate('home');
 
         # Parâmetros
-        $this->visao->tituloPagina($this->visao->traduzir('Página inicial', 'painel-dlx'));
+        if (!array_key_exists('html:titulo-pagina', $this->visao->obterParams())) {
+            $this->visao->tituloPagina($this->visao->traduzir('Página inicial', 'painel-dlx'));
+        } // Fim if
+
         $this->visao->adicionarClassesExtras('body', 'pg-home');
         
         $this->visao->mostrarConteudo();

@@ -1,0 +1,115 @@
+<?php
+/**
+ * ciazeijo.com.br
+ * @version: v1.18.04
+ * @author: Diego Lepera
+ *
+ * The MIT License (MIT)
+ * Copyright (c) 2017 Diego Lepera http://diegolepera.xyz/
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is furnished
+ * to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+use DLX\Ajudantes\Visao as AjdVisao;
+
+if (!isset($params)) {
+    $params = $this->obterParams();
+} // Fim if
+
+$url_atual = AjdVisao::hostCompleto() . \DLX::$dlx->getUrl();
+?>
+
+[DLX-HEAD]
+<meta propoerty="og:image" content="<?php echo $params['meta-og:imagem'] ?>">
+<meta propoerty="og:title" content="<?php echo $params['meta-og:titulo'] ?>">
+<meta propoerty="og:type" content="<?php echo $params['meta-og:tipo'] ?>">
+<meta propoerty="og:url" content="<?php echo $url_atual ?>">
+<meta propoerty="og:description" content="<?php echo $params['meta-og:descricao'] ?>">
+[/DLX-HEAD]
+
+[DLX-CONTEUDO]
+<div id="fb-root"></div>
+
+<div class="compartilhar-redes">
+    <!-- Facebook -->
+    <div class="botao" data-href="<?php echo $url_atual ?>" data-layout="box_count" data-size="small" data-mobile-iframe="true">
+        <a class="lk-rede -facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $url_atual ?>">
+            Compartilhar
+        </a>
+    </div>
+
+    <!-- Twitter -->
+    <div class="botao">
+        <a href="https://twitter.com/share?url=<?php echo $url_atual ?>&hashtags=ciazeijo" target="_blank" class="lk-rede -twitter">Tweet</a>
+    </div>
+
+    <div class="botao">
+        <a href="https://plus.google.com/share?url=<?php echo $url_atual ?>" class="lk-rede -google-plus">
+            Google+
+        </a>
+    </div>
+</div>
+[/DLX-CONTEUDO]
+
+[DLX-ARQUIVOS-JS]
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+[/DLX-ARQUIVOS-JS]
+
+[DLX-SCRIPTS]
+<script>
+    //<![CDATA[
+    // SDK Facebbok
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.7";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    // SDK do Twitter
+    (!function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = p + '://platform.twitter.com/widgets.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }(document, 'script', 'twitter-wjs'));
+
+    $('.lk-rede').on('click.__script', function (evt) {
+        evt.stopPropagation();
+        evt.preventDefault();
+
+        var $link = $(this);
+        var href = $link.attr('href');
+
+        if (href !== '' && href !== 'javascript:') {
+            var tm_horizontal = 600;
+            var tm_vertical = 300;
+            var pos_horizontal = ((screen.width - tm_horizontal) / 2) || 0;
+            var pos_vertical = ((screen.height - tm_vertical) / 2) || 0;
+
+            window.open(href, 'rede-social', 'width=' + tm_horizontal + ' , height=' + tm_vertical + ', top=' + pos_vertical + ', left=' + pos_horizontal);
+        } // Fim if
+    });
+    //]]>
+</script>
+[/DLX-SCRIPTS]
