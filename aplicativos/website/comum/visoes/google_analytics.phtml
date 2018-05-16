@@ -1,11 +1,8 @@
 <?php
 /**
  * website-dlx
- * @version: v1.17.11
+ * @version: v1.18.05
  * @author: Diego Lepera
- *
- * Created by Diego Lepera on 2017-11-23. Please report any bug at
- * https://github.com/dlepera88-php/website-dlx/issues
  *
  * The MIT License (MIT)
  * Copyright (c) 2017 Diego Lepera http://diegolepera.xyz/
@@ -29,34 +26,24 @@
  * SOFTWARE.
  */
 
+use DLX\Ajudantes\Visao as AjdVisao;
+
 if (!isset($params)) {
     $params = $this->obterParams();
 } // Fim if
 
-$config = $params['modelo'];
-?>
+if ($params['conf:ga-ua']) : ?>
+    [DLX-ARQUIVOS-JS]
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $params['conf:ga-ua'] ?>"></script>
+    [/DLX-ARQUIVOS-JS]
 
-[DLX-CONTEUDO]
-<details class="mostrar-detalhes" open>
-    <summary class="det-titulo"><?php echo $this->traduzir('Geral', 'painel-dlx') ?></summary>
+    [DLX-SCRIPTS]
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-    <p class="det-paragr">
-        <span class="det-rotulo"><?php echo $this->traduzir('Tema', 'website-dlx') ?></span>
-        <?php echo $params['info:nome-tema'] ?>
-    </p>
-
-    <p class="det-paragr">
-        <span class="det-rotulo"><?php echo $this->traduzir('Email para contato', 'website-dlx') ?></span>
-        <?php echo $config->getEmailContato() ?>
-    </p>
-</details>
-
-<details class="mostrar-detalhes" open>
-    <summary class="det-titulo"><?php echo $this->traduzir('Google Analytics', 'painel-dlx') ?></summary>
-    
-    <p class="det-paragr">
-        <span class="det-rotulo"><?php echo $this->traduzir('ID de acompanhamento', 'painel-dlx') ?></span>
-        <?php echo $config->getGaUa() ?>
-    </p>
-</details>
-[/DLX-CONTEUDO]
+        gtag('config', '<?php echo $params['conf:ga-ua'] ?>');
+    </script>
+    [/DLX-SCRIPTS]
+<?php endif ?>

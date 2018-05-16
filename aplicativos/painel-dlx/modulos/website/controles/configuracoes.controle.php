@@ -76,7 +76,8 @@ class Configuracoes extends PainelDLX {
 
         # JS
         $this->visao->adicionarJS('web/js/jquery-form-ajax/jquery.formajax.plugin-min.js');
-        $this->visao->adicionarJS('web/js/jquery-mostrar-msg/jquery.mostrarmsg.plugin.js');
+        $this->visao->adicionarJS('web/js/jquery-mostrar-msg/jquery.mostrarmsg.plugin-min.js');
+        $this->visao->adicionarJS('web/js/jquery-mascara/jquery.mascara.plugin-min.js');
 
         # Parâmetros
         $this->visao->adicionarParam('lista:temas', $tema->carregarSelect(false));

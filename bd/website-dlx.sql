@@ -1,7 +1,8 @@
 -- CONFIGURAÇÕES DO WEBSITE
 CREATE TABLE dlx_websitedlx_configuracoes (
     config_tema VARCHAR(50) NOT NULL DEFAULT 'padrao',
-    config_email_contato VARCHAR(200)
+    config_email_contato VARCHAR(200),
+    config_ga_ua VARCHAR(13)
 ) ENGINE = INNODB;
 
 

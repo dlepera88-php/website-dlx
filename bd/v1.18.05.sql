@@ -1,0 +1,2 @@
+-- ADICIONAR CAMPOS PARA CONFIGURAÇÃO DO GOOGLE ANALYTICS
+ALTER TABLE dlx_websitedlx_configuracoes ADD config_ga_ua VARCHAR(13);

@@ -57,6 +57,16 @@ $config = $params['modelo'];
         </p>
     </fieldset>
 
+    <fieldset class="form-grupo">
+        <legend class="form-legenda"><?php echo $this->traduzir('Google Analytics', 'painel-dlx') ?></legend>
+        
+        <p class="form-paragr">
+            <?php echo HTMLForm::campoGeral('texto', 'ga_ua', 'ga-ua', $config->getGaUa(), $this->traduzir('ID de acompanhamento', 'painel-dlx'), null, [
+                'data-mask' => 'UA-0000000-00'
+            ]) ?>
+        </p>
+    </fieldset>
+ 
     <div class="form-botoes">
         <?php echo HTMLForm::botao('salvar', $this->traduzir('Salvar', 'painel-dlx')),
             HTMLForm::botao('cancelar', $this->traduzir('Cancelar', 'painel-dlx')) ?>

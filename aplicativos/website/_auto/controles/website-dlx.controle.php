@@ -54,6 +54,7 @@ abstract class WebsiteDLX extends BaseControleRegistro {
         $this->visao->adicionarTemplate('comum/visoes/menu');
         $this->visao->adicionarTemplate('comum/visoes/mensagens_usuario');
         $this->visao->adicionarTemplate('comum/visoes/rodape', -1, true, true);
+        $this->visao->adicionarTemplate('comum/visoes/google_analytics', -1, true, true);
 
         # Adicionar o suporte ao jQuery a esse aplicativo
         $this->visao->adicionarJS('web/js/jquery-3.2.1.min.js', -1);
@@ -63,6 +64,7 @@ abstract class WebsiteDLX extends BaseControleRegistro {
         $this->visao->adicionarParam('html:itens-menu', $modulo->itensMenu());
         $this->visao->adicionarParam('lista:infos-contato', $info_contato->listarInfosContato());
         $this->visao->adicionarParam('lista:redes-sociais', $info_contato->listarRedesSociais());
+        $this->visao->adicionarParam('conf:ga-ua', $config->getGaUa());
 
         # Modificar a página mestra de acordo com a preferência do usuário
         $this->visao->setTema($tema->getID());

@@ -44,6 +44,13 @@ trait ConfigSite {
      */
     protected $email_contato;
 
+    /**
+     * Código de acompanhamento do Google Analytics
+     *
+     * @var string
+     */
+    protected $ga_ua;
+
     public function getTema() {
         return $this->tema;
     }
@@ -58,5 +65,16 @@ trait ConfigSite {
 
 	public function setEmailContato($email_contato) {
 		$this->email_contato = filter_var($email_contato, FILTER_VALIDATE_EMAIL, FILTER_NULL_ON_FAILURE);
-	}
+    }
+    
+    public function getGaUa() {
+        return $this->ga_ua;
+    }
+
+    public function setGaUa($ga_ua) {
+        $this->ga_ua = filter_var($ga_ua, FILTER_VALIDATE_REGEXP, [
+            'options' => ['regexp' => '~^UA-[0-9]{7}-[0-9]{2}$~'],
+            'flags' => FILTER_NULL_ON_FAILURE
+        ]);
+    }
 }
