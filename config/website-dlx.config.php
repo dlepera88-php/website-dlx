@@ -1,11 +1,11 @@
 <?php
 /**
  * painel-dlx
- * @version: v1.17.08
+ * @version: v1.18.05
  * @author: Diego Lepera
  *
  * Created by Diego Lepera on 2017-07-28. Please report any bug at
- * https://github.com/dlepera88-php/framework-dlx/issues
+ * https://github.com/dlepera88-php/painel-dlx/issues
  *
  * The MIT License (MIT)
  * Copyright (c) 2017 Diego Lepera http://diegolepera.xyz/
@@ -29,8 +29,21 @@
  * SOFTWARE.
  */
 
-$config['bd'] = [
-    'dsn'   => 'mysql:host=localhost;dbname=bsbaparthoteis_dev',
-    'usuario' => 'bsbapart',
-    'senha' => 'H0t31$'
+$idioma = filter_input(INPUT_GET, 'dlx-idioma');
+$config['website'] = [
+    'global' => [
+        'aplicativo' => [
+            'nome'    => 'Website DLX',
+            'home'    => $idioma ? "{$idioma}/" : '',
+            'versao'  => 'v0.17.11',
+            'idioma'  => $idioma,
+            'favicon' => 'web/imgs/ico-lepera.png'
+        ],
+
+        'bd' => [
+            'dsn'   => 'mysql:host=localhost;dbname=frameworkdlx_dev',
+            'usuario' => 'root',
+            'senha' => '$d5Ro0t'
+        ]
+    ]
 ];
