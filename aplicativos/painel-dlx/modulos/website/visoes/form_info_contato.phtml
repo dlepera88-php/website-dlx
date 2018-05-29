@@ -61,12 +61,11 @@ $tipo_info = $params['modelo:tipo-info'];
             </select>
         </p>
 
-        <p class="form-paragr">
+        <p class="form-paragr" data-prefixo="<?php echo $tipo_info->getPrefixo() ?>">
             <?php echo HTMLForm::campoGeral('texto', 'valor', 'valor', $info_contato->getValor(), $this->traduzir('Informação de contato', 'website-dlx'), null, [
                 'maxlength' => 255,
                 'pattern' => $tipo_info->getValidacao(),
                 'data-mask' => $tipo_info->getMask(),
-                'data-prefixo' => $tipo_info->getPrefixo(),
                 'required'  => 'required'
             ]) ?>
         </p>
@@ -95,9 +94,10 @@ $tipo_info = $params['modelo:tipo-info'];
     $('#sel-tipo').on('change.__script', function () {
         $.get('website/tipos-de-informacoes/obter-configuracoes', 'tipo=' + $(this).val(), function (config) {
             if (config !== false) {
-                var $valor = $('#txt-valor');
-                
-                if (config.mascara == '') {
+                var $valor = $('#txt-valor'),
+                    $paragr = $valor.parents('.form-paragr');
+                    
+                if (config.mascara === null || config.mascara == '') {
                     $valor.removeAttr('data-mask');
 
                     // Remover a máscara no campo
@@ -109,8 +109,8 @@ $tipo_info = $params['modelo:tipo-info'];
                     $valor.mascara(config.mascara);
                 } // Fim if ... else
 
-                config.validacao == '' ? $valor.removeAttr('pattern') : $valor.attr('pattern', config.validacao);
-                config.prefixo == '' ? $valor.removeAttr('data-prefixo') : $valor.attr('data-prefixo', config.prefixo);
+                config.validacao === null || config.validacao == '' ? $valor.removeAttr('pattern') : $valor.attr('pattern', config.validacao);
+                config.prefixo === null || config.prefixo == '' ? $paragr.removeAttr('data-prefixo') : $paragr.attr('data-prefixo', config.prefixo);
             } // Fim if
         }, 'json');
     });

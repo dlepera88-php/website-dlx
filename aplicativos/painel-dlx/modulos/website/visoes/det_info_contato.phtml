@@ -1,7 +1,7 @@
 <?php
 /**
  * website-dlx
- * @version: v1.17.11
+ * @version: v1.18.05
  * @author: Diego Lepera
  *
  * Created by Diego Lepera on 2017-11-23. Please report any bug at
@@ -29,27 +29,37 @@
  * SOFTWARE.
  */
 
-namespace PainelDLX\Website\Modelos;
+use DLX\Ajudantes\Strings;
 
-use Comum\DTO\InfoContato as InfoContatoDTO;
-use DLX\Ajudantes\Visao as AjdVisao;
-use Geral\Modelos\BaseModeloRegistro;
-use Geral\Modelos\RegistroConsulta;
-use Geral\Modelos\RegistroEdicao;
-use PainelDLX\Website\Modelos\TipoInfo;
+if (!isset($params)) {
+    $params = $this->obterParams();
+} // Fim if
 
-class InfoContato extends BaseModeloRegistro {
-    use RegistroConsulta, RegistroEdicao, InfoContatoDTO;
+$info_contato = $params['modelo'];
+?>
 
-    public function __construct($pk = null) {
-        parent::__construct('dlx_websitedlx_infos_contato', 'info_contato_');
-        $this->set__NomeModelo(AjdVisao::traduzirTexto('informação de contato', 'website-dlx'));
-        $this->bd_lista->join('dlx_websitedlx_tipos_infos', 'T', "(T.tipo_info_id = {$this->getBdPrefixo()}tipo)", 'INNER');
-        $this->selecionarPK($pk);
-    } // Fim do método __construct
+[DLX-CONTEUDO]
+<details class="mostrar-detalhes" open>
+    <summary class="det-titulo"><?php echo $this->traduzir('Geral', 'painel-dlx') ?></summary>
 
-// Registros vinculados ------------------------------------------------------------------------ //
-    public function getTipoV() {
-        return new TipoInfo($this->getTipo());
-    } // Fim do método getTipoV
-} // Fim do modelo InfoContato
+    <p class="det-paragr">
+        <span class="det-rotulo"><?php echo $this->traduzir('Tipo', 'painel-dlx') ?></span>
+        <?php echo $info_contato->getTipoV()->getNome() ?>
+    </p>
+
+    <p class="det-paragr">
+        <span class="det-rotulo"><?php echo $this->traduzir('Informação de contato', 'painel-dlx') ?></span>
+        <?php echo $info_contato->getValor() ?>
+    </p>
+
+    <p class="det-paragr">
+        <span class="det-rotulo"><?php echo $this->traduzir('Exibição', 'painel-dlx') ?></span>
+        <?php echo $info_contato->getExibicao() ?>
+    </p>
+
+    <p class="det-paragr">
+        <span class="det-rotulo"><?php echo $this->traduzir('Publicado?', 'painel-dlx') ?></span>
+        <?php echo Strings::bool2humano($info_contato->isPublicar()) ?>
+    </p>
+</details>
+[/DLX-CONTEUDO]
