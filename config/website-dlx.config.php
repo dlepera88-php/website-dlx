@@ -30,20 +30,18 @@
  */
 
 $idioma = filter_input(INPUT_GET, 'dlx-idioma');
-$config['website'] = [
-    'global' => [
-        'aplicativo' => [
-            'nome'    => 'Website DLX',
-            'home'    => $idioma ? "{$idioma}/" : '',
-            'versao'  => 'v0.17.11',
-            'idioma'  => $idioma,
-            'favicon' => 'web/imgs/ico-lepera.png'
-        ],
+$config['website']['global'] = [
+    'aplicativo' => [
+        'nome'    => 'Website DLX',
+        'home'    => $idioma ? "{$idioma}/" : '',
+        'versao'  => 'v0.17.11',
+        'idioma'  => $idioma,
+        'favicon' => 'web/imgs/ico-lepera.png'
+    ],
 
-        'bd' => [
-            'dsn'   => 'mysql:host=localhost;dbname=frameworkdlx_dev',
-            'usuario' => 'root',
-            'senha' => '$d5Ro0t'
-        ]
+    'bd' => [
+        'dsn'   => 'mysql:host=localhost;dbname=frameworkdlx_dev',
+        'usuario' => 'root',
+        'senha' => '$d5Ro0t'
     ]
 ];
