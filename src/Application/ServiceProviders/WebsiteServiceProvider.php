@@ -33,7 +33,7 @@ use League\Tactician\CommandBus;
 use PainelDLX\Application\Factories\CommandBusFactory;
 use Vilex\VileX;
 use Website\Application\Services\Adapters\Analytics\GoogleAnalyticsAdapter;
-use Website\Domain\Common\Services\Adapters\AnalyticsAdapterInterface;
+use Website\Domain\Common\Adapters\AnalyticsAdapterInterface;
 
 class WebsiteServiceProvider extends AbstractServiceProvider
 {

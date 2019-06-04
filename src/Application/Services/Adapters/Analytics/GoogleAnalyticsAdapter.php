@@ -35,7 +35,7 @@ use Google_Service_AnalyticsReporting_GetReportsRequest;
 use Google_Service_AnalyticsReporting_GetReportsResponse;
 use Google_Service_AnalyticsReporting_Metric;
 use Google_Service_AnalyticsReporting_ReportRequest;
-use Website\Domain\Common\Services\Adapters\AnalyticsAdapterInterface;
+use Website\Domain\Common\Adapters\AnalyticsAdapterInterface;
 
 /**
  * Class GoogleAnalyticsAdapter

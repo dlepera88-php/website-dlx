@@ -26,7 +26,7 @@
 namespace Website\UseCases\Analytics\GetDadosAcesso;
 
 
-use Website\Domain\Common\Services\Adapters\AnalyticsAdapterInterface;
+use Website\Domain\Common\Adapters\AnalyticsAdapterInterface;
 
 class GetDadosAcessoCommandHandler
 {
