@@ -23,7 +23,7 @@
  * SOFTWARE.
  */
 
-namespace Website\Domain\Common\Services\Adapters;
+namespace Website\Domain\Common\Adapters;
 
 
 use DateTime;
