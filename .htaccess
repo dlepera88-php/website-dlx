@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Direcionar o usuário para o Website
+    RewriteCond %{SCRIPT_FILENAME} !-d
+    RewriteCond %{SCRIPT_FILENAME} !-f
+
+    # Regra para levar o usuário ao conteúdo do Website
+    RewriteRule ^(.*)$ index.php?task=/$1&ambiente=website-dev [QSA,L]
+    # Regra para levar o usuário ao conteúdo do Website
+    RewriteRule ^$ index.php?task=/&ambiente=website-dev [QSA,L]
+</IfModule>
