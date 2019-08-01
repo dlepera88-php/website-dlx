@@ -23,36 +23,34 @@
  * SOFTWARE.
  */
 
-namespace Website\Presentation\Site\Common\Controllers;
+namespace Website\UseCases\FormContato\GetAssuntoPorId;
 
 
-use League\Tactician\CommandBus;
-use Vilex\VileX;
+use Website\Domain\FormContato\Entities\AssuntoContato;
+use Website\Domain\FormContato\Repositories\AssuntoContatoRepositoryInterface;
 
-class SiteController
+class GetAssuntoContatoPorIdCommandHandler
 {
     /**
-     * @var CommandBus
+     * @var AssuntoContatoRepositoryInterface
      */
-    protected $command_bus;
-    /**
-     * @var VileX
-     */
-    protected $view;
+    private $assunto_contato_repository;
 
     /**
-     * SiteController constructor.
-     * @param CommandBus $command_bus
-     * @param VileX $view
+     * GetAssuntoPorIdCommandHandler constructor.
+     * @param AssuntoContatoRepositoryInterface $assunto_contato_repository
      */
-    public function __construct(
-        CommandBus $command_bus,
-        VileX $view
-    ) {
-        $this->command_bus = $command_bus;
-        $this->view = $view;
+    public function __construct(AssuntoContatoRepositoryInterface $assunto_contato_repository)
+    {
+        $this->assunto_contato_repository = $assunto_contato_repository;
+    }
 
-        $this->view->setPaginaMestra('public/views/paginas-mestras/website-master.phtml');
-        $this->view->setViewRoot('public/views/');
+    /**
+     * @param GetAssuntoContatoPorIdCommand $command
+     * @return AssuntoContato|null
+     */
+    public function handle(GetAssuntoContatoPorIdCommand $command): ?AssuntoContato
+    {
+        return $this->assunto_contato_repository->find($command->getId());
     }
 }

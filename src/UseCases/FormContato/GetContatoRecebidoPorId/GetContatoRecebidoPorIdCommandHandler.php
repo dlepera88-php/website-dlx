@@ -23,32 +23,39 @@
  * SOFTWARE.
  */
 
-namespace Website\Application\Rotes;
+namespace Website\UseCases\FormContato\GetContatoRecebidoPorId;
 
 
-use RautereX\RautereX;
+use Website\Domain\FormContato\Entities\ContatoRecebido;
+use Website\Domain\FormContato\Repositories\ContatoRecebidoRepositoryInterface;
 
-class WebsiteRouter
+/**
+ * Class GetContatoRecebidoPorIdCommandHandler
+ * @package Website\UseCases\FormContato\GetContatoRecebidoPorId
+ * @covers GetContatoRecebidoPorIdCommandHandlerTest
+ */
+class GetContatoRecebidoPorIdCommandHandler
 {
     /**
-     * @var RautereX
+     * @var ContatoRecebidoRepositoryInterface
      */
-    private $router;
+    private $contato_recebido_repository;
 
     /**
-     * WebsiteRouter constructor.
-     * @param RautereX $router
+     * GetContatoRecebidoPorIdCommandHandler constructor.
+     * @param ContatoRecebidoRepositoryInterface $contato_recebido_repository
      */
-    public function __construct(RautereX $router)
+    public function __construct(ContatoRecebidoRepositoryInterface $contato_recebido_repository)
     {
-        $this->router = $router;
+        $this->contato_recebido_repository = $contato_recebido_repository;
     }
 
     /**
-     * @return RautereX
+     * @param GetContatoRecebidoPorIdCommand $command
+     * @return ContatoRecebido|null
      */
-    public function getRouter(): RautereX
+    public function handle(GetContatoRecebidoPorIdCommand $command): ?ContatoRecebido
     {
-        return $this->router;
+        return $this->contato_recebido_repository->find($command->getId());
     }
 }

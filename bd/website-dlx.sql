@@ -8,24 +8,24 @@ CREATE TABLE dlx_configuracoes (
 -- ASSUNTOS DE CONTATOS
 CREATE TABLE dlx_assuntos_contato (
     assunto_contato_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    descrcicao VARCHAR(50) NOT NULL,
+    descricao VARCHAR(50) NOT NULL,
     cor VARCHAR(7) NOT NULL DEFAULT '#000',
     email VARCHAR(200),
-    publicar BOOL NOT NULL DEFAULT 1,
+    publicado BOOL NOT NULL DEFAULT 1,
     deletado BOOL NOT NULL DEFAULT 0
 ) ENGINE = INNODB;
 
 
 -- CONTATOS RECEBIDOS
-CREATE TABLE dlx_contatos (
-    contato_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    assunto INT,
+CREATE TABLE dlx_contatos_recebidos (
+    contato_recebido_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    assunto_contato_id INT,
     nome VARCHAR(150) NOT NULL,
     email VARCHAR(200) NOT NULL,
     telefone VARCHAR(16),
     mensagem LONGTEXT NOT NULL,
     deletado BOOL NOT NULL DEFAULT 0,
-    CONSTRAINT FK_contato_assunto FOREIGN KEY (assunto) REFERENCES dlx_assuntos_contato (assunto_contato_id)
+    CONSTRAINT FK_contato_assunto FOREIGN KEY (assunto_contato_id) REFERENCES dlx_assuntos_contato (assunto_contato_id)
 ) ENGINE = INNODB;
 
 -- INFORMAÇÕES DE CONTATO

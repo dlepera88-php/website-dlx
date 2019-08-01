@@ -28,11 +28,28 @@ namespace Website\Application\Mappings;
 
 use Website\UseCases\Analytics\GetDadosAcesso\GetDadosAcessoCommand;
 use Website\UseCases\Analytics\GetDadosAcesso\GetDadosAcessoCommandHandler;
+use Website\UseCases\FormContato\GetAssuntoPorId\GetAssuntoContatoPorIdCommand;
+use Website\UseCases\FormContato\GetAssuntoPorId\GetAssuntoContatoPorIdCommandHandler;
+use Website\UseCases\FormContato\GetContatoRecebidoPorId\GetContatoRecebidoPorIdCommand;
+use Website\UseCases\FormContato\GetContatoRecebidoPorId\GetContatoRecebidoPorIdCommandHandler;
+use Website\UseCases\FormContato\GetListaAssuntos\GetListaAssuntosCommand;
+use Website\UseCases\FormContato\GetListaAssuntos\GetListaAssuntosCommandHandler;
+use Website\UseCases\FormContato\GetListaContatosRecebidos\GetListaContatosRecebidosCommand;
+use Website\UseCases\FormContato\GetListaContatosRecebidos\GetListaContatosRecebidosCommandHandler;
+use Website\UseCases\FormContato\SalvarContatoSite\SalvarContatoSiteCommand;
+use Website\UseCases\FormContato\SalvarContatoSite\SalvarContatoSiteCommandHandler;
 
 class WebsiteMapping
 {
     private $mapping = [
-        GetDadosAcessoCommand::class => GetDadosAcessoCommandHandler::class
+        GetDadosAcessoCommand::class => GetDadosAcessoCommandHandler::class,
+
+        // FormContato
+        GetContatoRecebidoPorIdCommand::class => GetContatoRecebidoPorIdCommandHandler::class,
+        GetListaContatosRecebidosCommand::class => GetListaContatosRecebidosCommandHandler::class,
+        SalvarContatoSiteCommand::class => SalvarContatoSiteCommandHandler::class,
+        GetListaAssuntosCommand::class => GetListaAssuntosCommandHandler::class,
+        GetAssuntoContatoPorIdCommand::class => GetAssuntoContatoPorIdCommandHandler::class,
     ];
 
     /**

@@ -23,36 +23,28 @@
  * SOFTWARE.
  */
 
-namespace Website\Presentation\Site\Common\Controllers;
+namespace Website\Application\Routes;
 
 
-use League\Tactician\CommandBus;
-use Vilex\VileX;
+use Website\Presentation\Site\FormContato\Controllers\FormContatoController;
 
-class SiteController
+class ContatoRouter extends WebsiteRouter
 {
     /**
-     * @var CommandBus
+     * Registrar todas as rotas
      */
-    protected $command_bus;
-    /**
-     * @var VileX
-     */
-    protected $view;
+    public function registrar(): void
+    {
+        $router = $this->getRouter();
 
-    /**
-     * SiteController constructor.
-     * @param CommandBus $command_bus
-     * @param VileX $view
-     */
-    public function __construct(
-        CommandBus $command_bus,
-        VileX $view
-    ) {
-        $this->command_bus = $command_bus;
-        $this->view = $view;
+        $router->get(
+            '/contato',
+            [FormContatoController::class, 'formContato']
+        );
 
-        $this->view->setPaginaMestra('public/views/paginas-mestras/website-master.phtml');
-        $this->view->setViewRoot('public/views/');
+        $router->post(
+            '/form-contato/enviar',
+            [FormContatoController::class, 'enviarContato']
+        );
     }
 }

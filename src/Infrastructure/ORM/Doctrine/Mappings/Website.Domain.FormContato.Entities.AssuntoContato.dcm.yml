@@ -1,0 +1,27 @@
+Website\Domain\FormContato\Entities\AssuntoContato:
+    type: entity
+    table: dlx_assuntos_contato
+    repositoryClass: Website\Infrastructure\ORM\Doctrine\Repositories\AssuntoContatoRepository
+    id:
+        id:
+            type: integer
+            nullable: false
+            id: true
+            column: assunto_contato_id
+            generator:
+                strategy: auto
+    fields:
+        descricao:
+            type: string
+            nullable: false
+            length: 50
+        email:
+            type: string
+            nullable: true
+            length: 50
+        publicado:
+            type: boolean
+            nullable: false
+        deletado:
+            type: boolean
+            nullable: false

@@ -23,36 +23,20 @@
  * SOFTWARE.
  */
 
-namespace Website\Presentation\Site\Common\Controllers;
+use PainelDLX\Application\Routes\ConfigSmtpRouter;
+use PainelDLX\Application\Routes\ErrosRouter;
+use PainelDLX\Application\Routes\GruposUsuariosRouter;
+use PainelDLX\Application\Routes\HomeRouter;
+use PainelDLX\Application\Routes\LoginRouter;
+use PainelDLX\Application\Routes\PermissoesRouter;
+use PainelDLX\Application\Routes\UsuariosRouter;
 
-
-use League\Tactician\CommandBus;
-use Vilex\VileX;
-
-class SiteController
-{
-    /**
-     * @var CommandBus
-     */
-    protected $command_bus;
-    /**
-     * @var VileX
-     */
-    protected $view;
-
-    /**
-     * SiteController constructor.
-     * @param CommandBus $command_bus
-     * @param VileX $view
-     */
-    public function __construct(
-        CommandBus $command_bus,
-        VileX $view
-    ) {
-        $this->command_bus = $command_bus;
-        $this->view = $view;
-
-        $this->view->setPaginaMestra('public/views/paginas-mestras/website-master.phtml');
-        $this->view->setViewRoot('public/views/');
-    }
-}
+return [
+    HomeRouter::class,
+    ErrosRouter::class,
+    UsuariosRouter::class,
+    PermissoesRouter::class,
+    GruposUsuariosRouter::class,
+    LoginRouter::class,
+    ConfigSmtpRouter::class
+];

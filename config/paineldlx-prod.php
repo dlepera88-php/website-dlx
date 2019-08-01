@@ -59,8 +59,8 @@ return [
             'src/Website/Infra/ORM/Doctrine/Mappings',
             'src/Website/Infra/ORM/Doctrine/Repositories',
 
-            "{$dir_painel_dlx}src/Infra/ORM/Doctrine/Mappings",
-            "{$dir_painel_dlx}src/Infra/ORM/Doctrine/Repositories"
+            "{$dir_painel_dlx}src/Infrastructure/ORM/Doctrine/Mappings",
+            "{$dir_painel_dlx}src/Infrastructure/ORM/Doctrine/Repositories"
         ],
         'types' => [
             'cpf' => CPFType::class

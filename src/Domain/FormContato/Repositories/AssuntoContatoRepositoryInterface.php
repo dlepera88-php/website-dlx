@@ -23,24 +23,12 @@
  * SOFTWARE.
  */
 
-namespace Website\Application\Rotes;
+namespace Website\Domain\FormContato\Repositories;
 
 
-use Website\Presentation\Site\Analytics\Controllers\GoogleAnalyticsController;
+use DLX\Domain\Repositories\EntityRepositoryInterface;
 
-class AnalyticsRouter extends WebsiteRouter
+interface AssuntoContatoRepositoryInterface extends EntityRepositoryInterface
 {
 
-    /**
-     * Registrar todas as rotas
-     */
-    public function registrar(): void
-    {
-        $router = $this->getRouter();
-
-        $router->get(
-            '/analytics/dados-acesso',
-            [GoogleAnalyticsController::class, 'getDadosAcesso']
-        );
-    }
 }

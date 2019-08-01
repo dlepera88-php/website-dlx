@@ -23,36 +23,24 @@
  * SOFTWARE.
  */
 
-namespace Website\Presentation\Site\Common\Controllers;
+namespace Website\Application\Routes;
 
 
-use League\Tactician\CommandBus;
-use Vilex\VileX;
+use Website\Presentation\Site\Analytics\Controllers\GoogleAnalyticsController;
 
-class SiteController
+class AnalyticsRouter extends WebsiteRouter
 {
-    /**
-     * @var CommandBus
-     */
-    protected $command_bus;
-    /**
-     * @var VileX
-     */
-    protected $view;
 
     /**
-     * SiteController constructor.
-     * @param CommandBus $command_bus
-     * @param VileX $view
+     * Registrar todas as rotas
      */
-    public function __construct(
-        CommandBus $command_bus,
-        VileX $view
-    ) {
-        $this->command_bus = $command_bus;
-        $this->view = $view;
+    public function registrar(): void
+    {
+        $router = $this->getRouter();
 
-        $this->view->setPaginaMestra('public/views/paginas-mestras/website-master.phtml');
-        $this->view->setViewRoot('public/views/');
+        $router->get(
+            '/analytics/dados-acesso',
+            [GoogleAnalyticsController::class, 'getDadosAcesso']
+        );
     }
 }

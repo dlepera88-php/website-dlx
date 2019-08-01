@@ -39,7 +39,8 @@ return [
         'nome-amigavel' => 'Website',
         'base-html' => '/',
         'base-url' => 'http://website-dlx.localhost/',
-        'rotas' => include 'rotas.php',
+        'diretorios' => include 'website/diretorios.php',
+        'rotas' => include 'website/rotas.php',
         'service-providers' => include 'website/service_providers.php',
         'mapping' => include 'website/mapping.php',
         'favicon' => PainelDLX::$dir . '/public/imgs/favicon.png',
@@ -52,11 +53,11 @@ return [
         'dev-mode' => true,
         //'debug' => EchoSQLLogger::class,
         'dir' => [
-            'src/Infra/ORM/Doctrine/Mappings',
-            'src/Infra/ORM/Doctrine/Repositories',
+            'src/Infrastructure/ORM/Doctrine/Mappings',
+            'src/Infrastructure/ORM/Doctrine/Repositories',
 
-            "{$dir_painel_dlx}src/Infra/ORM/Doctrine/Mappings",
-            "{$dir_painel_dlx}src/Infra/ORM/Doctrine/Repositories"
+            "{$dir_painel_dlx}src/Infrastructure/ORM/Doctrine/Mappings",
+            "{$dir_painel_dlx}src/Infrastructure/ORM/Doctrine/Repositories"
         ],
         'conexao' => [
             'dbname' => 'dlx_dev',

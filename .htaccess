@@ -5,8 +5,15 @@
     RewriteCond %{SCRIPT_FILENAME} !-d
     RewriteCond %{SCRIPT_FILENAME} !-f
 
+    # Regra para levar o usuário ao conteúdo do Painel DLX
+    RewriteRule ^painel-dlx/.*?$ index.php?ambiente=paineldlx-dev [QSA,L]
+
+    # Direcionar o usuário para o Website
+    RewriteCond %{SCRIPT_FILENAME} !-d
+    RewriteCond %{SCRIPT_FILENAME} !-f
+
     # Regra para levar o usuário ao conteúdo do Website
-    RewriteRule ^(.*)$ index.php?task=/$1&ambiente=website-dev [QSA,L]
+    RewriteRule .* index.php?ambiente=website-dev [QSA,L]
     # Regra para levar o usuário ao conteúdo do Website
-    RewriteRule ^$ index.php?task=/&ambiente=website-dev [QSA,L]
+    RewriteRule ^$ index.php?ambiente=website-dev [QSA,L]
 </IfModule>

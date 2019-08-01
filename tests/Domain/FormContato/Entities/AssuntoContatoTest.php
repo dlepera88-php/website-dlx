@@ -23,36 +23,33 @@
  * SOFTWARE.
  */
 
-namespace Website\Presentation\Site\Common\Controllers;
+namespace Website\Tests\Domain\FormContato\Entities;
 
+use PHPUnit\Framework\TestCase;
+use Website\Domain\FormContato\Entities\AssuntoContato;
 
-use League\Tactician\CommandBus;
-use Vilex\VileX;
-
-class SiteController
+/**
+ * Class AssuntoContatoTest
+ * @package Website\Tests\Domain\FormContato\Entities
+ * @coversDefaultClass \Website\Domain\FormContato\Entities\AssuntoContato
+ */
+class AssuntoContatoTest extends TestCase
 {
-    /**
-     * @var CommandBus
-     */
-    protected $command_bus;
-    /**
-     * @var VileX
-     */
-    protected $view;
 
-    /**
-     * SiteController constructor.
-     * @param CommandBus $command_bus
-     * @param VileX $view
-     */
-    public function __construct(
-        CommandBus $command_bus,
-        VileX $view
-    ) {
-        $this->command_bus = $command_bus;
-        $this->view = $view;
+    public function test__construct(): AssuntoContato
+    {
+        $descricao = 'Outros';
+        $email = 'teste@gmail.com';
 
-        $this->view->setPaginaMestra('public/views/paginas-mestras/website-master.phtml');
-        $this->view->setViewRoot('public/views/');
+        $assunto = new AssuntoContato($descricao, $email);
+
+        $this->assertInstanceOf(AssuntoContato::class, $assunto);
+        $this->assertEquals($descricao, $assunto->getDescricao());
+        $this->assertEquals($descricao, (string)$assunto);
+        $this->assertEquals($email, $assunto->getEmail());
+        $this->assertTrue($assunto->isPublicado());
+        $this->assertFalse($assunto->isDeletado());
+
+        return $assunto;
     }
 }

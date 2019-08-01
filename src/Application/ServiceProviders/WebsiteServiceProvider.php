@@ -31,9 +31,18 @@ use League\Container\Container;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use League\Tactician\CommandBus;
 use PainelDLX\Application\Factories\CommandBusFactory;
+use PainelDLX\Infrastructure\ORM\Doctrine\Services\RepositoryFactory;
+use SechianeX\Contracts\SessionInterface;
+use SechianeX\Exceptions\SessionAdapterInterfaceInvalidaException;
+use SechianeX\Exceptions\SessionAdapterNaoEncontradoException;
+use SechianeX\Factories\SessionFactory;
 use Vilex\VileX;
 use Website\Application\Services\Adapters\Analytics\GoogleAnalyticsAdapter;
 use Website\Domain\Common\Adapters\AnalyticsAdapterInterface;
+use Website\Domain\FormContato\Entities\AssuntoContato;
+use Website\Domain\FormContato\Entities\ContatoRecebido;
+use Website\Domain\FormContato\Repositories\AssuntoContatoRepositoryInterface;
+use Website\Domain\FormContato\Repositories\ContatoRecebidoRepositoryInterface;
 
 class WebsiteServiceProvider extends AbstractServiceProvider
 {
@@ -41,6 +50,9 @@ class WebsiteServiceProvider extends AbstractServiceProvider
         AnalyticsAdapterInterface::class,
         CommandBus::class,
         VileX::class,
+        AssuntoContatoRepositoryInterface::class,
+        ContatoRecebidoRepositoryInterface::class,
+        SessionInterface::class,
     ];
 
     /**
@@ -49,6 +61,8 @@ class WebsiteServiceProvider extends AbstractServiceProvider
      * from the ContainerAwareTrait.
      *
      * @return void
+     * @throws SessionAdapterInterfaceInvalidaException
+     * @throws SessionAdapterNaoEncontradoException
      */
     public function register()
     {
@@ -70,6 +84,21 @@ class WebsiteServiceProvider extends AbstractServiceProvider
             function () {
                 return new GoogleAnalyticsAdapter('config/website/brasilia-apart-hoteis.json', 'Brasília Apart Hotéis');
             }
+        );
+
+        $container->add(
+            AssuntoContatoRepositoryInterface::class,
+            RepositoryFactory::create(AssuntoContato::class)
+        );
+
+        $container->add(
+            ContatoRecebidoRepositoryInterface::class,
+            RepositoryFactory::create(ContatoRecebido::class)
+        );
+
+        $container->add(
+            SessionInterface::class,
+            SessionFactory::createPHPSession()
         );
     }
 }

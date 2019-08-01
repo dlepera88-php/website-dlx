@@ -23,36 +23,33 @@
  * SOFTWARE.
  */
 
-namespace Website\Presentation\Site\Common\Controllers;
+namespace Website\Application\Routes;
 
 
-use League\Tactician\CommandBus;
-use Vilex\VileX;
 
-class SiteController
+use PainelDLX\Application\Contracts\Router\RouterInterface;
+
+class WebsiteRouter
 {
     /**
-     * @var CommandBus
+     * @var RouterInterface
      */
-    protected $command_bus;
-    /**
-     * @var VileX
-     */
-    protected $view;
+    private $router;
 
     /**
-     * SiteController constructor.
-     * @param CommandBus $command_bus
-     * @param VileX $view
+     * WebsiteRouter constructor.
+     * @param RouterInterface $router
      */
-    public function __construct(
-        CommandBus $command_bus,
-        VileX $view
-    ) {
-        $this->command_bus = $command_bus;
-        $this->view = $view;
+    public function __construct(RouterInterface $router)
+    {
+        $this->router = $router;
+    }
 
-        $this->view->setPaginaMestra('public/views/paginas-mestras/website-master.phtml');
-        $this->view->setViewRoot('public/views/');
+    /**
+     * @return RouterInterface
+     */
+    public function getRouter(): RouterInterface
+    {
+        return $this->router;
     }
 }

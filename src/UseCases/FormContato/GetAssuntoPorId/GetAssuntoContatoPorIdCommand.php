@@ -23,36 +23,12 @@
  * SOFTWARE.
  */
 
-namespace Website\Presentation\Site\Common\Controllers;
+namespace Website\UseCases\FormContato\GetAssuntoPorId;
 
 
-use League\Tactician\CommandBus;
-use Vilex\VileX;
+use PainelDLX\Application\Contracts\FindByIdCommand;
 
-class SiteController
+class GetAssuntoContatoPorIdCommand extends FindByIdCommand
 {
-    /**
-     * @var CommandBus
-     */
-    protected $command_bus;
-    /**
-     * @var VileX
-     */
-    protected $view;
 
-    /**
-     * SiteController constructor.
-     * @param CommandBus $command_bus
-     * @param VileX $view
-     */
-    public function __construct(
-        CommandBus $command_bus,
-        VileX $view
-    ) {
-        $this->command_bus = $command_bus;
-        $this->view = $view;
-
-        $this->view->setPaginaMestra('public/views/paginas-mestras/website-master.phtml');
-        $this->view->setViewRoot('public/views/');
-    }
 }

@@ -1,0 +1,35 @@
+Website\Domain\FormContato\Entities\ContatoRecebido:
+    type: entity
+    table: dlx_contatos_recebidos
+    repositoryClass: Website\Infrastructure\ORM\Doctrine\Repositories\ContatoRecebidoRepository
+    id:
+        id:
+            type: integer
+            nullable: false
+            id: true
+            column: contato_recebido_id
+            generator:
+                strategy: auto
+    fields:
+        nome:
+            type: string
+            nullable: false
+            length: 100
+        email:
+            type: string
+            nullable: false
+            length: 100
+        telefone:
+            type: string
+            nullable: true
+            length: 16
+        mensagem:
+            type: string
+            nullable: false
+            length: 255
+    manyToOne:
+        assunto:
+            targetEntity: AssuntoContato
+            joinColumns:
+                assunto_contato_id:
+                    referencedColumnName: assunto_contato_id

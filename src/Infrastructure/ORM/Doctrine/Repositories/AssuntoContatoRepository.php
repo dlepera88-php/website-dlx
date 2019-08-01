@@ -23,9 +23,12 @@
  * SOFTWARE.
  */
 
-use Website\Application\Rotes\AnalyticsRouter;
+namespace Website\Infrastructure\ORM\Doctrine\Repositories;
 
-return [
-    // Website
-    AnalyticsRouter::class
-];
+use PainelDLX\Infrastructure\ORM\Doctrine\Repositories\AbstractPainelDLXRepository;
+use Website\Domain\FormContato\Repositories\AssuntoContatoRepositoryInterface;
+
+class AssuntoContatoRepository extends AbstractPainelDLXRepository implements AssuntoContatoRepositoryInterface
+{
+
+}
