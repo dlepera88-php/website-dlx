@@ -39,7 +39,7 @@ CREATE TABLE dlx_informacao_contato_tipo (
 DROP TABLE IF EXISTS dlx_informacao_contato;
 CREATE TABLE dlx_informacao_contato (
     informacao_contato_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    tipo INT NOT NULL references dlx_informacao_contato_tipo (informacao_contato_tipo_id),
+    informacao_contato_tipo_id INT NOT NULL references dlx_informacao_contato_tipo (informacao_contato_tipo_id),
     contato VARCHAR(255) NOT NULL,
     deletado BOOL NOT NULL DEFAULT 0
 ) ENGINE=INNODB;
