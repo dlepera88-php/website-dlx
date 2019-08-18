@@ -29,26 +29,30 @@ namespace Website\Domain\Contato\Entities;
 use DLX\Domain\Entities\Entity;
 
 /**
- * Class InformacaoContatoTipo
+ * Class InformacaoContato
  * @package Website\Domain\Contato\Entities
- * @covers InformacaoContatoTipoTest
+ * @covers InformacaoContatoTest
  */
-class InformacaoContatoTipo extends Entity
+class InformacaoContato extends Entity
 {
     /** @var int|null */
     private $id;
+    /** @var InformacaoContatoTipo */
+    private $tipo;
     /** @var string */
-    private $nome;
+    private $contato;
     /** @var bool */
     private $deletado = false;
 
     /**
-     * InformacaoContatoTipo constructor.
-     * @param string $nome
+     * InformacaoContato constructor.
+     * @param InformacaoContatoTipo $tipo
+     * @param string $informacao
      */
-    public function __construct(string $nome)
+    public function __construct(InformacaoContatoTipo $tipo, string $informacao)
     {
-        $this->nome = $nome;
+        $this->tipo = $tipo;
+        $this->contato = $informacao;
     }
 
     /**
@@ -60,11 +64,19 @@ class InformacaoContatoTipo extends Entity
     }
 
     /**
+     * @return InformacaoContatoTipo
+     */
+    public function getTipo(): InformacaoContatoTipo
+    {
+        return $this->tipo;
+    }
+
+    /**
      * @return string
      */
-    public function getNome(): string
+    public function getContato(): string
     {
-        return $this->nome;
+        return $this->contato;
     }
 
     /**
@@ -77,6 +89,6 @@ class InformacaoContatoTipo extends Entity
 
     public function __toString()
     {
-        return $this->getNome();
+        return $this->getContato();
     }
 }

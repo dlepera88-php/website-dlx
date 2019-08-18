@@ -23,60 +23,41 @@
  * SOFTWARE.
  */
 
-namespace Website\Domain\Contato\Entities;
+namespace Website\UseCases\Contato\ListaInformacoesContato;
 
 
-use DLX\Domain\Entities\Entity;
+use Website\Domain\Contato\Repositories\InformacaoContatoRepositoryInterface;
 
-/**
- * Class InformacaoContatoTipo
- * @package Website\Domain\Contato\Entities
- * @covers InformacaoContatoTipoTest
- */
-class InformacaoContatoTipo extends Entity
+class ListaInformacoesContatoCommandHandler
 {
-    /** @var int|null */
-    private $id;
-    /** @var string */
-    private $nome;
-    /** @var bool */
-    private $deletado = false;
+    /**
+     * @var InformacaoContatoRepositoryInterface
+     */
+    private $informacao_contato_repository;
 
     /**
-     * InformacaoContatoTipo constructor.
-     * @param string $nome
+     * ListaInformacoesContatoCommandHandler constructor.
+     * @param InformacaoContatoRepositoryInterface $informacao_contato_repository
      */
-    public function __construct(string $nome)
+    public function __construct(InformacaoContatoRepositoryInterface $informacao_contato_repository)
     {
-        $this->nome = $nome;
+        $this->informacao_contato_repository = $informacao_contato_repository;
     }
 
     /**
-     * @return int|null
+     * @param ListaInformacoesContatoCommand $command
+     * @return array
      */
-    public function getId(): ?int
+    public function handle(ListaInformacoesContatoCommand $command): array
     {
-        return $this->id;
-    }
+        $criteria = $command->getCriteria();
+        $criteria['and'] = ['deletado' => false];
 
-    /**
-     * @return string
-     */
-    public function getNome(): string
-    {
-        return $this->nome;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isDeletado(): bool
-    {
-        return $this->deletado;
-    }
-
-    public function __toString()
-    {
-        return $this->getNome();
+        return $this->informacao_contato_repository->findByLike(
+            $criteria,
+            $command->getOrderBy(),
+            $command->getLimit(),
+            $command->getOffset()
+        );
     }
 }

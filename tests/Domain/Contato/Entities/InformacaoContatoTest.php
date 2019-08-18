@@ -23,60 +23,33 @@
  * SOFTWARE.
  */
 
-namespace Website\Domain\Contato\Entities;
+namespace Website\Tests\Domain\Contato\Entities;
 
-
-use DLX\Domain\Entities\Entity;
+use PHPUnit\Framework\TestCase;
+use Website\Domain\Contato\Entities\InformacaoContato;
+use Website\Domain\Contato\Entities\InformacaoContatoTipo;
 
 /**
- * Class InformacaoContatoTipo
- * @package Website\Domain\Contato\Entities
- * @covers InformacaoContatoTipoTest
+ * Class InformacaoContatoTest
+ * @package Website\Tests\Domain\Contato\Entities
+ * @coversDefaultClass \Website\Domain\Contato\Entities\InformacaoContato
  */
-class InformacaoContatoTipo extends Entity
+class InformacaoContatoTest extends TestCase
 {
-    /** @var int|null */
-    private $id;
-    /** @var string */
-    private $nome;
-    /** @var bool */
-    private $deletado = false;
 
-    /**
-     * InformacaoContatoTipo constructor.
-     * @param string $nome
-     */
-    public function __construct(string $nome)
+    public function test__construct(): InformacaoContato
     {
-        $this->nome = $nome;
-    }
+        $tipo = $this->createMock(InformacaoContatoTipo::class);
+        $info_contato = 'dlepera88@gmail.com';
 
-    /**
-     * @return int|null
-     */
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+        /** @var InformacaoContatoTipo $tipo */
 
-    /**
-     * @return string
-     */
-    public function getNome(): string
-    {
-        return $this->nome;
-    }
+        $informacao = new InformacaoContato($tipo, $info_contato);
 
-    /**
-     * @return bool
-     */
-    public function isDeletado(): bool
-    {
-        return $this->deletado;
-    }
+        $this->assertEquals($tipo, $informacao->getTipo());
+        $this->assertEquals($info_contato, $informacao->getContato());
+        $this->assertEquals($info_contato, (string)$informacao);
 
-    public function __toString()
-    {
-        return $this->getNome();
+        return $informacao;
     }
 }

@@ -29,25 +29,17 @@ CREATE TABLE dlx_contatos_recebidos (
 ) ENGINE = INNODB;
 
 -- INFORMAÇÕES DE CONTATO
-CREATE TABLE dlx_tipos_infos (
-    tipo_info_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    tipo_info_nome VARCHAR(100) NOT NULL,
-    tipo_info_prefixo VARCHAR(100),
-    tipo_info_rede_social BOOL NOT NULL DEFAULT 0,
-    tipo_info_validacao VARCHAR(255),
-    tipo_info_mask VARCHAR(100),
-    tipo_info_publicar BOOL NOT NULL DEFAULT 1,
-    tipo_info_delete BOOL NOT NULL DEFAULT 0
+CREATE TABLE dlx_informacao_contato_tipo (
+    informcao_contato_tipo_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    deletado BOOL NOT NULL DEFAULT 0
 ) ENGINE = INNODB;
 
-CREATE TABLE dlx_infos_contato (
-    info_contato_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    info_contato_tipo INT NOT NULL,
-    info_contato_valor VARCHAR(255) NOT NULL,
-    info_contato_exibicao VARCHAR(255),
-    info_contato_publicar BOOL NOT NULL DEFAULT 1,
-    info_contato_delete BOOL NOT NULL DEFAULT 0,
-    CONSTRAINT FK_info_contato_tipo FOREIGN KEY (info_contato_tipo) REFERENCES dlx_tipos_infos (tipo_info_id)
+CREATE TABLE dlx_informacao_contato (
+    informacao_contato_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    tipo INT NOT NULL references informcao_contato_tipo_id (informcao_contato_tipo_id),
+    contato VARCHAR(255) NOT NULL,
+    deletado BOOL NOT NULL DEFAULT 0
 ) ENGINE=INNODB;
 
 -- INFORMAÇÕES INSTITUCIONAIS

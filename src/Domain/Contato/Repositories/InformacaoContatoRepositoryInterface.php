@@ -23,60 +23,12 @@
  * SOFTWARE.
  */
 
-namespace Website\Domain\Contato\Entities;
+namespace Website\Domain\Contato\Repositories;
 
 
-use DLX\Domain\Entities\Entity;
+use DLX\Domain\Repositories\EntityRepositoryInterface;
 
-/**
- * Class InformacaoContatoTipo
- * @package Website\Domain\Contato\Entities
- * @covers InformacaoContatoTipoTest
- */
-class InformacaoContatoTipo extends Entity
+interface InformacaoContatoRepositoryInterface extends EntityRepositoryInterface
 {
-    /** @var int|null */
-    private $id;
-    /** @var string */
-    private $nome;
-    /** @var bool */
-    private $deletado = false;
 
-    /**
-     * InformacaoContatoTipo constructor.
-     * @param string $nome
-     */
-    public function __construct(string $nome)
-    {
-        $this->nome = $nome;
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getNome(): string
-    {
-        return $this->nome;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isDeletado(): bool
-    {
-        return $this->deletado;
-    }
-
-    public function __toString()
-    {
-        return $this->getNome();
-    }
 }

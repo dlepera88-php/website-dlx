@@ -1,0 +1,20 @@
+Website\Domain\Contato\Entities\InformacaoContatoTipo:
+    type: entity
+    table: dlx_informacao_contato_tipo
+    # repositoryClass: Website\Infrastructure\ORM\Doctrine\Repositories\InformacaoContatoTipoRepository
+    id:
+        id:
+            type: integer
+            nullable: false
+            id: true
+            column: informacao_contato_tipo_id
+            generator:
+                strategy: auto
+    fields:
+        descricao:
+            type: string
+            nullable: false
+            length: 50
+        deletado:
+            type: boolean
+            nullable: false

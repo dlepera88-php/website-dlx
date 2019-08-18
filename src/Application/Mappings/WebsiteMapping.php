@@ -36,6 +36,8 @@ use Website\UseCases\Contato\GetListaAssuntos\GetListaAssuntosCommand;
 use Website\UseCases\Contato\GetListaAssuntos\GetListaAssuntosCommandHandler;
 use Website\UseCases\Contato\ListaContatosRecebidos\ListaContatosRecebidosCommand;
 use Website\UseCases\Contato\ListaContatosRecebidos\ListaContatosRecebidosCommandHandler;
+use Website\UseCases\Contato\ListaInformacoesContato\ListaInformacoesContatoCommand;
+use Website\UseCases\Contato\ListaInformacoesContato\ListaInformacoesContatoCommandHandler;
 use Website\UseCases\Contato\SalvarContatoSite\SalvarContatoSiteCommand;
 use Website\UseCases\Contato\SalvarContatoSite\SalvarContatoSiteCommandHandler;
 
@@ -50,6 +52,9 @@ class WebsiteMapping
         SalvarContatoSiteCommand::class => SalvarContatoSiteCommandHandler::class,
         GetListaAssuntosCommand::class => GetListaAssuntosCommandHandler::class,
         GetAssuntoContatoPorIdCommand::class => GetAssuntoContatoPorIdCommandHandler::class,
+
+        // Informações de contato
+        ListaInformacoesContatoCommand::class => ListaInformacoesContatoCommandHandler::class,
     ];
 
     /**
