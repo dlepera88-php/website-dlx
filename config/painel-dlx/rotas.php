@@ -30,13 +30,18 @@ use PainelDLX\Application\Routes\HomeRouter;
 use PainelDLX\Application\Routes\LoginRouter;
 use PainelDLX\Application\Routes\PermissoesRouter;
 use PainelDLX\Application\Routes\UsuariosRouter;
+use Website\Application\Routes\ContatoRouter;
 
 return [
+    // Painel DLX
     HomeRouter::class,
     ErrosRouter::class,
     UsuariosRouter::class,
     PermissoesRouter::class,
     GruposUsuariosRouter::class,
     LoginRouter::class,
-    ConfigSmtpRouter::class
+    ConfigSmtpRouter::class,
+
+    // Website DLX
+    ContatoRouter::class,
 ];

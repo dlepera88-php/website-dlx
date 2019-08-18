@@ -23,10 +23,10 @@
  * SOFTWARE.
  */
 
-namespace Website\UseCases\FormContato\SalvarContatoSite;
+namespace Website\UseCases\Contato\SalvarContatoSite;
 
 
-use Website\Domain\FormContato\Entities\AssuntoContato;
+use Website\Domain\Contato\Entities\AssuntoContato;
 
 class SalvarContatoSiteCommand
 {

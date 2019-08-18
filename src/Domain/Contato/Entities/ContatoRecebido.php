@@ -23,7 +23,7 @@
  * SOFTWARE.
  */
 
-namespace Website\Domain\FormContato\Entities;
+namespace Website\Domain\Contato\Entities;
 
 
 use DLX\Domain\Entities\Entity;
@@ -42,7 +42,7 @@ class ContatoRecebido extends Entity
     private $nome;
     /** @var string */
     private $email;
-    /** @var string */
+    /** @var string|null */
     private $telefone;
     /** @var string */
     private $mensagem;
@@ -122,9 +122,9 @@ class ContatoRecebido extends Entity
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTelefone(): string
+    public function getTelefone(): ?string
     {
         return $this->telefone;
     }

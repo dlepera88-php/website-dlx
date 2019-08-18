@@ -26,29 +26,29 @@
 namespace Website\Tests\UseCases\FormContato\GetListaContatosRecebidos;
 
 use PHPUnit\Framework\TestCase;
-use Website\Domain\FormContato\Entities\ContatoRecebido;
-use Website\Domain\FormContato\Repositories\ContatoRecebidoRepositoryInterface;
-use Website\UseCases\FormContato\GetListaContatosRecebidos\GetListaContatosRecebidosCommand;
-use Website\UseCases\FormContato\GetListaContatosRecebidos\GetListaContatosRecebidosCommandHandler;
+use Website\Domain\Contato\Entities\ContatoRecebido;
+use Website\Domain\Contato\Repositories\ContatoRecebidoRepositoryInterface;
+use Website\UseCases\Contato\ListaContatosRecebidos\ListaContatosRecebidosCommand;
+use Website\UseCases\Contato\ListaContatosRecebidos\ListaContatosRecebidosCommandHandler;
 
 /**
  * Class GetListaContatosRecebidosCommandHandlerTest
  * @package Website\Tests\UseCases\FormContato\GetListaContatosRecebidos
- * @coversDefaultClass \Website\UseCases\FormContato\GetListaContatosRecebidos\GetListaContatosRecebidosCommandHandler
+ * @coversDefaultClass \Website\UseCases\Contato\ListaContatosRecebidos\ListaContatosRecebidosCommandHandler
  */
 class GetListaContatosRecebidosCommandHandlerTest extends TestCase
 {
     /**
-     * @return GetListaContatosRecebidosCommandHandler
+     * @return ListaContatosRecebidosCommandHandler
      */
-    public function test__construct(): GetListaContatosRecebidosCommandHandler
+    public function test__construct(): ListaContatosRecebidosCommandHandler
     {
         /** @var ContatoRecebidoRepositoryInterface $contato_recebido_repository */
         $contato_recebido_repository = $this->createMock(ContatoRecebidoRepositoryInterface::class);
 
-        $handler = new GetListaContatosRecebidosCommandHandler($contato_recebido_repository);
+        $handler = new ListaContatosRecebidosCommandHandler($contato_recebido_repository);
 
-        $this->assertInstanceOf(GetListaContatosRecebidosCommandHandler::class, $handler);
+        $this->assertInstanceOf(ListaContatosRecebidosCommandHandler::class, $handler);
 
         return $handler;
     }
@@ -75,12 +75,12 @@ class GetListaContatosRecebidosCommandHandlerTest extends TestCase
             $contato_recebido_deletado
         ]);
 
-        $command = $this->createMock(GetListaContatosRecebidosCommand::class);
+        $command = $this->createMock(ListaContatosRecebidosCommand::class);
 
         /** @var ContatoRecebidoRepositoryInterface $contato_recebido_repository */
-        /** @var GetListaContatosRecebidosCommand $command */
+        /** @var ListaContatosRecebidosCommand $command */
 
-        $handler = new GetListaContatosRecebidosCommandHandler($contato_recebido_repository);
+        $handler = new ListaContatosRecebidosCommandHandler($contato_recebido_repository);
         $lista_contatos_recebidos = $handler->handle($command);
 
         $this->assertCount(1, $lista_contatos_recebidos);

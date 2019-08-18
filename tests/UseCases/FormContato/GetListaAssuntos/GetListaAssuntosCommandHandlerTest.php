@@ -27,16 +27,16 @@ namespace Website\Tests\UseCases\FormContato\GetListaAssuntos;
 
 use ReflectionException;
 use ReflectionProperty;
-use Website\Domain\FormContato\Entities\AssuntoContato;
-use Website\Domain\FormContato\Repositories\AssuntoContatoRepositoryInterface;
+use Website\Domain\Contato\Entities\AssuntoContato;
+use Website\Domain\Contato\Repositories\AssuntoContatoRepositoryInterface;
 use Website\Tests\TestCase\WebsiteTestCase;
-use Website\UseCases\FormContato\GetListaAssuntos\GetListaAssuntosCommand;
-use Website\UseCases\FormContato\GetListaAssuntos\GetListaAssuntosCommandHandler;
+use Website\UseCases\Contato\GetListaAssuntos\GetListaAssuntosCommand;
+use Website\UseCases\Contato\GetListaAssuntos\GetListaAssuntosCommandHandler;
 
 /**
  * Class GetListaAssuntosCommandHandlerTest
  * @package Website\Tests\UseCases\FormContato\GetListaAssuntos
- * @coversDefaultClass \Website\UseCases\FormContato\GetListaAssuntos\GetListaAssuntosCommandHandler
+ * @coversDefaultClass \Website\UseCases\Contato\GetListaAssuntos\GetListaAssuntosCommandHandler
  */
 class GetListaAssuntosCommandHandlerTest extends WebsiteTestCase
 {

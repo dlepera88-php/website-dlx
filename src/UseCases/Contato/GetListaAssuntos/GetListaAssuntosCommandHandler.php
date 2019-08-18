@@ -23,15 +23,15 @@
  * SOFTWARE.
  */
 
-namespace Website\UseCases\FormContato\GetListaAssuntos;
+namespace Website\UseCases\Contato\GetListaAssuntos;
 
 
-use Website\Domain\FormContato\Entities\AssuntoContato;
-use Website\Domain\FormContato\Repositories\AssuntoContatoRepositoryInterface;
+use Website\Domain\Contato\Entities\AssuntoContato;
+use Website\Domain\Contato\Repositories\AssuntoContatoRepositoryInterface;
 
 /**
  * Class GetListaAssuntosCommandHandler
- * @package Website\UseCases\FormContato\GetListaAssuntos
+ * @package Website\UseCases\Contato\GetListaAssuntos
  * @covers GetListaAssuntosCommandHandlerTest
  */
 class GetListaAssuntosCommandHandler
@@ -56,17 +56,14 @@ class GetListaAssuntosCommandHandler
      */
     public function handle(GetListaAssuntosCommand $command): array
     {
-        $lista_assuntos = $this->assunto_contato_repository->findByLike(
+        $criteria = $command->getCriteria();
+        $criteria['and'] = ['deletado' => false];
+
+        return $this->assunto_contato_repository->findByLike(
             $command->getCriteria(),
             $command->getOrderBy(),
             $command->getLimit(),
             $command->getOffset()
         );
-
-        $lista_assuntos = array_filter($lista_assuntos, function (AssuntoContato $assunto_contato) {
-            return !$assunto_contato->isDeletado();
-        });
-
-        return $lista_assuntos;
     }
 }

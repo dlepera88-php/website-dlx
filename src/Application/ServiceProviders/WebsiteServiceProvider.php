@@ -39,10 +39,10 @@ use SechianeX\Factories\SessionFactory;
 use Vilex\VileX;
 use Website\Application\Services\Adapters\Analytics\GoogleAnalyticsAdapter;
 use Website\Domain\Common\Adapters\AnalyticsAdapterInterface;
-use Website\Domain\FormContato\Entities\AssuntoContato;
-use Website\Domain\FormContato\Entities\ContatoRecebido;
-use Website\Domain\FormContato\Repositories\AssuntoContatoRepositoryInterface;
-use Website\Domain\FormContato\Repositories\ContatoRecebidoRepositoryInterface;
+use Website\Domain\Contato\Entities\AssuntoContato;
+use Website\Domain\Contato\Entities\ContatoRecebido;
+use Website\Domain\Contato\Repositories\AssuntoContatoRepositoryInterface;
+use Website\Domain\Contato\Repositories\ContatoRecebidoRepositoryInterface;
 
 class WebsiteServiceProvider extends AbstractServiceProvider
 {

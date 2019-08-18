@@ -28,16 +28,16 @@ namespace Website\Application\Mappings;
 
 use Website\UseCases\Analytics\GetDadosAcesso\GetDadosAcessoCommand;
 use Website\UseCases\Analytics\GetDadosAcesso\GetDadosAcessoCommandHandler;
-use Website\UseCases\FormContato\GetAssuntoPorId\GetAssuntoContatoPorIdCommand;
-use Website\UseCases\FormContato\GetAssuntoPorId\GetAssuntoContatoPorIdCommandHandler;
-use Website\UseCases\FormContato\GetContatoRecebidoPorId\GetContatoRecebidoPorIdCommand;
-use Website\UseCases\FormContato\GetContatoRecebidoPorId\GetContatoRecebidoPorIdCommandHandler;
-use Website\UseCases\FormContato\GetListaAssuntos\GetListaAssuntosCommand;
-use Website\UseCases\FormContato\GetListaAssuntos\GetListaAssuntosCommandHandler;
-use Website\UseCases\FormContato\GetListaContatosRecebidos\GetListaContatosRecebidosCommand;
-use Website\UseCases\FormContato\GetListaContatosRecebidos\GetListaContatosRecebidosCommandHandler;
-use Website\UseCases\FormContato\SalvarContatoSite\SalvarContatoSiteCommand;
-use Website\UseCases\FormContato\SalvarContatoSite\SalvarContatoSiteCommandHandler;
+use Website\UseCases\Contato\GetAssuntoPorId\GetAssuntoContatoPorIdCommand;
+use Website\UseCases\Contato\GetAssuntoPorId\GetAssuntoContatoPorIdCommandHandler;
+use Website\UseCases\Contato\GetContatoRecebidoPorId\GetContatoRecebidoPorIdCommand;
+use Website\UseCases\Contato\GetContatoRecebidoPorId\GetContatoRecebidoPorIdCommandHandler;
+use Website\UseCases\Contato\GetListaAssuntos\GetListaAssuntosCommand;
+use Website\UseCases\Contato\GetListaAssuntos\GetListaAssuntosCommandHandler;
+use Website\UseCases\Contato\ListaContatosRecebidos\ListaContatosRecebidosCommand;
+use Website\UseCases\Contato\ListaContatosRecebidos\ListaContatosRecebidosCommandHandler;
+use Website\UseCases\Contato\SalvarContatoSite\SalvarContatoSiteCommand;
+use Website\UseCases\Contato\SalvarContatoSite\SalvarContatoSiteCommandHandler;
 
 class WebsiteMapping
 {
@@ -46,7 +46,7 @@ class WebsiteMapping
 
         // FormContato
         GetContatoRecebidoPorIdCommand::class => GetContatoRecebidoPorIdCommandHandler::class,
-        GetListaContatosRecebidosCommand::class => GetListaContatosRecebidosCommandHandler::class,
+        ListaContatosRecebidosCommand::class => ListaContatosRecebidosCommandHandler::class,
         SalvarContatoSiteCommand::class => SalvarContatoSiteCommandHandler::class,
         GetListaAssuntosCommand::class => GetListaAssuntosCommandHandler::class,
         GetAssuntoContatoPorIdCommand::class => GetAssuntoContatoPorIdCommandHandler::class,

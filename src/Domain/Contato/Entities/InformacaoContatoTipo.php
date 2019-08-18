@@ -23,12 +23,17 @@
  * SOFTWARE.
  */
 
-namespace Website\UseCases\FormContato\GetContatoRecebidoPorId;
+namespace Website\Domain\Contato\Entities;
 
 
-use PainelDLX\Application\Contracts\FindByIdCommand;
+use DLX\Domain\Entities\Entity;
 
-class GetContatoRecebidoPorIdCommand extends FindByIdCommand
+class InformacaoContatoTipo extends Entity
 {
-
+    /** @var int|null */
+    private $id;
+    /** @var string */
+    private $descricao;
+    /** @var bool */
+    private $deletado = false;
 }

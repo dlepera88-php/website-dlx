@@ -23,39 +23,12 @@
  * SOFTWARE.
  */
 
-namespace Website\UseCases\FormContato\GetContatoRecebidoPorId;
+namespace Website\UseCases\Contato\GetContatoRecebidoPorId;
 
 
-use Website\Domain\FormContato\Entities\ContatoRecebido;
-use Website\Domain\FormContato\Repositories\ContatoRecebidoRepositoryInterface;
+use PainelDLX\Application\Contracts\FindByIdCommand;
 
-/**
- * Class GetContatoRecebidoPorIdCommandHandler
- * @package Website\UseCases\FormContato\GetContatoRecebidoPorId
- * @covers GetContatoRecebidoPorIdCommandHandlerTest
- */
-class GetContatoRecebidoPorIdCommandHandler
+class GetContatoRecebidoPorIdCommand extends FindByIdCommand
 {
-    /**
-     * @var ContatoRecebidoRepositoryInterface
-     */
-    private $contato_recebido_repository;
 
-    /**
-     * GetContatoRecebidoPorIdCommandHandler constructor.
-     * @param ContatoRecebidoRepositoryInterface $contato_recebido_repository
-     */
-    public function __construct(ContatoRecebidoRepositoryInterface $contato_recebido_repository)
-    {
-        $this->contato_recebido_repository = $contato_recebido_repository;
-    }
-
-    /**
-     * @param GetContatoRecebidoPorIdCommand $command
-     * @return ContatoRecebido|null
-     */
-    public function handle(GetContatoRecebidoPorIdCommand $command): ?ContatoRecebido
-    {
-        return $this->contato_recebido_repository->find($command->getId());
-    }
 }

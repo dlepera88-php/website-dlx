@@ -23,12 +23,12 @@
  * SOFTWARE.
  */
 
-namespace Website\UseCases\FormContato\GetAssuntoPorId;
+namespace Website\Domain\Contato\Repositories;
 
 
-use PainelDLX\Application\Contracts\FindByIdCommand;
+use DLX\Domain\Repositories\EntityRepositoryInterface;
 
-class GetAssuntoContatoPorIdCommand extends FindByIdCommand
+interface AssuntoContatoRepositoryInterface extends EntityRepositoryInterface
 {
 
 }

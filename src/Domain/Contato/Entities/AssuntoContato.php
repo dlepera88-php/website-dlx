@@ -23,7 +23,7 @@
  * SOFTWARE.
  */
 
-namespace Website\Domain\FormContato\Entities;
+namespace Website\Domain\Contato\Entities;
 
 
 use DLX\Domain\Entities\Entity;
@@ -31,7 +31,7 @@ use PainelDLX\Domain\Common\Entities\LogRegistroTrait;
 
 /**
  * Class AssuntoContato
- * @package Website\Domain\FormContato\Entities
+ * @package Website\Domain\Contato\Entities
  * @covers AssuntoContatoTest
  */
 class AssuntoContato extends Entity

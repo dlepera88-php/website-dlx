@@ -24,7 +24,9 @@
  */
 
 use PainelDLX\Application\ServiceProviders\PainelDLXServiceProvider;
+use Website\Application\ServiceProviders\WebsiteServiceProvider;
 
 return [
     PainelDLXServiceProvider::class,
+    WebsiteServiceProvider::class
 ];

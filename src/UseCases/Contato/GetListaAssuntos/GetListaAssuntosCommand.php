@@ -23,12 +23,12 @@
  * SOFTWARE.
  */
 
-namespace Website\Domain\FormContato\Repositories;
+namespace Website\UseCases\Contato\GetListaAssuntos;
 
 
-use DLX\Domain\Repositories\EntityRepositoryInterface;
+use PainelDLX\Application\Contracts\ListaRegistrosCommand;
 
-interface ContatoRecebidoRepositoryInterface extends EntityRepositoryInterface
+class GetListaAssuntosCommand extends ListaRegistrosCommand
 {
 
 }

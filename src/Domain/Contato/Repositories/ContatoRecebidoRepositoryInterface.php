@@ -23,12 +23,12 @@
  * SOFTWARE.
  */
 
-namespace Website\Domain\FormContato\Repositories;
+namespace Website\Domain\Contato\Repositories;
 
 
 use DLX\Domain\Repositories\EntityRepositoryInterface;
 
-interface AssuntoContatoRepositoryInterface extends EntityRepositoryInterface
+interface ContatoRecebidoRepositoryInterface extends EntityRepositoryInterface
 {
 
 }

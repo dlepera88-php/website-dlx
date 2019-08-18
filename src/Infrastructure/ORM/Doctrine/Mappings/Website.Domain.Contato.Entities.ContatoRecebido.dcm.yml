@@ -1,4 +1,4 @@
-Website\Domain\FormContato\Entities\ContatoRecebido:
+Website\Domain\Contato\Entities\ContatoRecebido:
     type: entity
     table: dlx_contatos_recebidos
     repositoryClass: Website\Infrastructure\ORM\Doctrine\Repositories\ContatoRecebidoRepository

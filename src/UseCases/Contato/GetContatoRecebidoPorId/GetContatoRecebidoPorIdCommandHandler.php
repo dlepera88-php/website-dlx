@@ -23,18 +23,18 @@
  * SOFTWARE.
  */
 
-namespace Website\UseCases\FormContato\SalvarContatoSite;
+namespace Website\UseCases\Contato\GetContatoRecebidoPorId;
 
 
-use Website\Domain\FormContato\Entities\ContatoRecebido;
-use Website\Domain\FormContato\Repositories\ContatoRecebidoRepositoryInterface;
+use Website\Domain\Contato\Entities\ContatoRecebido;
+use Website\Domain\Contato\Repositories\ContatoRecebidoRepositoryInterface;
 
 /**
- * Class SalvarContatoSiteCommandHandler
- * @package Website\UseCases\FormContato\SalvarContatoSite
- * @covers SalvarContatoSiteCommandHandlerTest
+ * Class GetContatoRecebidoPorIdCommandHandler
+ * @package Website\UseCases\Contato\GetContatoRecebidoPorId
+ * @covers GetContatoRecebidoPorIdCommandHandlerTest
  */
-class SalvarContatoSiteCommandHandler
+class GetContatoRecebidoPorIdCommandHandler
 {
     /**
      * @var ContatoRecebidoRepositoryInterface
@@ -42,7 +42,7 @@ class SalvarContatoSiteCommandHandler
     private $contato_recebido_repository;
 
     /**
-     * SalvarContatoSiteCommandHandler constructor.
+     * GetContatoRecebidoPorIdCommandHandler constructor.
      * @param ContatoRecebidoRepositoryInterface $contato_recebido_repository
      */
     public function __construct(ContatoRecebidoRepositoryInterface $contato_recebido_repository)
@@ -51,20 +51,11 @@ class SalvarContatoSiteCommandHandler
     }
 
     /**
-     * @param SalvarContatoSiteCommand $command
-     * @return ContatoRecebido
+     * @param GetContatoRecebidoPorIdCommand $command
+     * @return ContatoRecebido|null
      */
-    public function handle(SalvarContatoSiteCommand $command): ContatoRecebido
+    public function handle(GetContatoRecebidoPorIdCommand $command): ?ContatoRecebido
     {
-        $contato_recebido = new ContatoRecebido();
-        $contato_recebido->setAssunto($command->getAssuntoContato());
-        $contato_recebido->setNome($command->getNome());
-        $contato_recebido->setEmail($command->getEmail());
-        $contato_recebido->setTelefone($command->getTelefone());
-        $contato_recebido->setMensagem($command->getMensagem());
-
-        $this->contato_recebido_repository->create($contato_recebido);
-
-        return $contato_recebido;
+        return $this->contato_recebido_repository->find($command->getId());
     }
 }

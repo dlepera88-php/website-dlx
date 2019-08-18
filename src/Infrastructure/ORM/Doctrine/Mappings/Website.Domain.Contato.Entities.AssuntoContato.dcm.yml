@@ -1,4 +1,4 @@
-Website\Domain\FormContato\Entities\AssuntoContato:
+Website\Domain\Contato\Entities\AssuntoContato:
     type: entity
     table: dlx_assuntos_contato
     repositoryClass: Website\Infrastructure\ORM\Doctrine\Repositories\AssuntoContatoRepository

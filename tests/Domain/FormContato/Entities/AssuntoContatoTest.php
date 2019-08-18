@@ -26,12 +26,12 @@
 namespace Website\Tests\Domain\FormContato\Entities;
 
 use PHPUnit\Framework\TestCase;
-use Website\Domain\FormContato\Entities\AssuntoContato;
+use Website\Domain\Contato\Entities\AssuntoContato;
 
 /**
  * Class AssuntoContatoTest
  * @package Website\Tests\Domain\FormContato\Entities
- * @coversDefaultClass \Website\Domain\FormContato\Entities\AssuntoContato
+ * @coversDefaultClass \Website\Domain\Contato\Entities\AssuntoContato
  */
 class AssuntoContatoTest extends TestCase
 {

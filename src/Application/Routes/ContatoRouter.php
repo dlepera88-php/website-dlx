@@ -26,6 +26,12 @@
 namespace Website\Application\Routes;
 
 
+use PainelDLX\Application\Middlewares\Autorizacao;
+use PainelDLX\Application\Middlewares\ConfigurarPaginacao;
+use PainelDLX\Application\Middlewares\DefinePaginaMestra;
+use PainelDLX\Application\Middlewares\VerificarLogon;
+use PainelDLX\Application\Services\PainelDLX;
+use Website\Presentation\PainelDLX\Contato\ListaContatosRecebidosController;
 use Website\Presentation\Site\FormContato\Controllers\FormContatoController;
 
 class ContatoRouter extends WebsiteRouter
@@ -34,6 +40,15 @@ class ContatoRouter extends WebsiteRouter
      * Registrar todas as rotas
      */
     public function registrar(): void
+    {
+        $this->rotasWebsite();
+        $this->rotasPainelDLX();
+    }
+
+    /**
+     * Rotas de contatos do website
+     */
+    private function rotasWebsite(): void
     {
         $router = $this->getRouter();
 
@@ -45,6 +60,34 @@ class ContatoRouter extends WebsiteRouter
         $router->post(
             '/form-contato/enviar',
             [FormContatoController::class, 'enviarContato']
+        );
+    }
+
+    /**
+     * Rotas de contatos do PainelDLX
+     */
+    private function rotasPainelDLX(): void
+    {
+        $router = $this->getRouter();
+        $container = PainelDLX::getInstance()->getContainer();
+
+        /** @var VerificarLogon $verificar_logon */
+        $verificar_logon = $container->get(VerificarLogon::class);
+        /** @var DefinePaginaMestra $define_pagina_mestra */
+        $define_pagina_mestra = $container->get(DefinePaginaMestra::class);
+        /** @var ConfigurarPaginacao $configurar_paginacao */
+        $configurar_paginacao = $container->get(ConfigurarPaginacao::class);
+        /** @var Autorizacao $autorizacao */
+        $autorizacao = $container->get(Autorizacao::class);
+
+        $router->get(
+            '/painel-dlx/contato/contatos-recebidos',
+            [ListaContatosRecebidosController::class, 'listaContatosRecebidos']
+        )->middlewares(
+            $define_pagina_mestra,
+            $verificar_logon,
+            // $autorizacao->necessitaPermissoes('VER_LISTA_CONTATOS_RECEBIDOS'),
+            $configurar_paginacao
         );
     }
 }

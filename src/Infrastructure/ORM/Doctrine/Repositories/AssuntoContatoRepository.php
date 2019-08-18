@@ -26,7 +26,7 @@
 namespace Website\Infrastructure\ORM\Doctrine\Repositories;
 
 use PainelDLX\Infrastructure\ORM\Doctrine\Repositories\AbstractPainelDLXRepository;
-use Website\Domain\FormContato\Repositories\AssuntoContatoRepositoryInterface;
+use Website\Domain\Contato\Repositories\AssuntoContatoRepositoryInterface;
 
 class AssuntoContatoRepository extends AbstractPainelDLXRepository implements AssuntoContatoRepositoryInterface
 {

@@ -23,12 +23,45 @@
  * SOFTWARE.
  */
 
-namespace Website\Infrastructure\ORM\Doctrine\Repositories;
+namespace Website\UseCases\Contato\ListaContatosRecebidos;
 
-use PainelDLX\Infrastructure\ORM\Doctrine\Repositories\AbstractPainelDLXRepository;
 use Website\Domain\Contato\Repositories\ContatoRecebidoRepositoryInterface;
 
-class ContatoRecebidoRepository extends AbstractPainelDLXRepository implements ContatoRecebidoRepositoryInterface
+/**
+ * Class GetListaContatosRecebidosCommandHandler
+ * @package Website\UseCases\Contato\GetListaContatosRecebidos
+ * @covers GetListaContatosRecebidosCommandHandlerTest
+ */
+class ListaContatosRecebidosCommandHandler
 {
+    /**
+     * @var ContatoRecebidoRepositoryInterface
+     */
+    private $contato_recebido_repository;
 
+    /**
+     * GetListaContatosRecebidosCommandHandler constructor.
+     * @param ContatoRecebidoRepositoryInterface $contato_recebido_repository
+     */
+    public function __construct(ContatoRecebidoRepositoryInterface $contato_recebido_repository)
+    {
+        $this->contato_recebido_repository = $contato_recebido_repository;
+    }
+
+    /**
+     * @param ListaContatosRecebidosCommand $command
+     * @return array
+     */
+    public function handle(ListaContatosRecebidosCommand $command): array
+    {
+        $criteria = $command->getCriteria();
+        $criteria['and'] = ['deletado' => false];
+
+        return $this->contato_recebido_repository->findByLike(
+            $command->getCriteria(),
+            $command->getOrderBy(),
+            $command->getLimit(),
+            $command->getOffset()
+        );
+    }
 }

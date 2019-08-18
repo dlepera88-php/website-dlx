@@ -23,12 +23,12 @@
  * SOFTWARE.
  */
 
-namespace Website\UseCases\FormContato\GetListaAssuntos;
+namespace Website\UseCases\Contato\ListaContatosRecebidos;
 
 
 use PainelDLX\Application\Contracts\ListaRegistrosCommand;
 
-class GetListaAssuntosCommand extends ListaRegistrosCommand
+class ListaContatosRecebidosCommand extends ListaRegistrosCommand
 {
 
 }

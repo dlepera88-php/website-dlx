@@ -23,12 +23,34 @@
  * SOFTWARE.
  */
 
-namespace Website\UseCases\FormContato\GetListaContatosRecebidos;
+namespace Website\UseCases\Contato\GetAssuntoPorId;
 
 
-use PainelDLX\Application\Contracts\ListaRegistrosCommand;
+use Website\Domain\Contato\Entities\AssuntoContato;
+use Website\Domain\Contato\Repositories\AssuntoContatoRepositoryInterface;
 
-class GetListaContatosRecebidosCommand extends ListaRegistrosCommand
+class GetAssuntoContatoPorIdCommandHandler
 {
+    /**
+     * @var AssuntoContatoRepositoryInterface
+     */
+    private $assunto_contato_repository;
 
+    /**
+     * GetAssuntoPorIdCommandHandler constructor.
+     * @param AssuntoContatoRepositoryInterface $assunto_contato_repository
+     */
+    public function __construct(AssuntoContatoRepositoryInterface $assunto_contato_repository)
+    {
+        $this->assunto_contato_repository = $assunto_contato_repository;
+    }
+
+    /**
+     * @param GetAssuntoContatoPorIdCommand $command
+     * @return AssuntoContato|null
+     */
+    public function handle(GetAssuntoContatoPorIdCommand $command): ?AssuntoContato
+    {
+        return $this->assunto_contato_repository->find($command->getId());
+    }
 }

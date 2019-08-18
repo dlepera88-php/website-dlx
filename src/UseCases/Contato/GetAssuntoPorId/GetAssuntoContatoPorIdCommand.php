@@ -23,34 +23,12 @@
  * SOFTWARE.
  */
 
-namespace Website\UseCases\FormContato\GetAssuntoPorId;
+namespace Website\UseCases\Contato\GetAssuntoPorId;
 
 
-use Website\Domain\FormContato\Entities\AssuntoContato;
-use Website\Domain\FormContato\Repositories\AssuntoContatoRepositoryInterface;
+use PainelDLX\Application\Contracts\FindByIdCommand;
 
-class GetAssuntoContatoPorIdCommandHandler
+class GetAssuntoContatoPorIdCommand extends FindByIdCommand
 {
-    /**
-     * @var AssuntoContatoRepositoryInterface
-     */
-    private $assunto_contato_repository;
 
-    /**
-     * GetAssuntoPorIdCommandHandler constructor.
-     * @param AssuntoContatoRepositoryInterface $assunto_contato_repository
-     */
-    public function __construct(AssuntoContatoRepositoryInterface $assunto_contato_repository)
-    {
-        $this->assunto_contato_repository = $assunto_contato_repository;
-    }
-
-    /**
-     * @param GetAssuntoContatoPorIdCommand $command
-     * @return AssuntoContato|null
-     */
-    public function handle(GetAssuntoContatoPorIdCommand $command): ?AssuntoContato
-    {
-        return $this->assunto_contato_repository->find($command->getId());
-    }
 }

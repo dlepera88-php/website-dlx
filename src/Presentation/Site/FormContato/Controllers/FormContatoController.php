@@ -32,13 +32,13 @@ use Psr\Http\Message\ServerRequestInterface;
 use Vilex\Exceptions\ContextoInvalidoException;
 use Vilex\Exceptions\PaginaMestraNaoEncontradaException;
 use Vilex\Exceptions\ViewNaoEncontradaException;
-use Website\Domain\FormContato\Entities\AssuntoContato;
+use Website\Domain\Contato\Entities\AssuntoContato;
 use Website\Presentation\Site\Common\Controllers\SiteController;
-use Website\UseCases\FormContato\GetAssuntoPorId\GetAssuntoContatoPorIdCommand;
-use Website\UseCases\FormContato\GetListaAssuntos\GetListaAssuntosCommand;
-use Website\UseCases\FormContato\GetListaAssuntos\GetListaAssuntosCommandHandler;
-use Website\UseCases\FormContato\SalvarContatoSite\SalvarContatoSiteCommand;
-use Website\UseCases\FormContato\SalvarContatoSite\SalvarContatoSiteCommandHandler;
+use Website\UseCases\Contato\GetAssuntoPorId\GetAssuntoContatoPorIdCommand;
+use Website\UseCases\Contato\GetListaAssuntos\GetListaAssuntosCommand;
+use Website\UseCases\Contato\GetListaAssuntos\GetListaAssuntosCommandHandler;
+use Website\UseCases\Contato\SalvarContatoSite\SalvarContatoSiteCommand;
+use Website\UseCases\Contato\SalvarContatoSite\SalvarContatoSiteCommandHandler;
 use Zend\Diactoros\Response\JsonResponse;
 
 /**

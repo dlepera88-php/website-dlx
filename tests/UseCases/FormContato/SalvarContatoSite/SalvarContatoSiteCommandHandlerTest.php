@@ -29,16 +29,16 @@ use DLX\Infrastructure\EntityManagerX;
 use Doctrine\DBAL\DBALException;
 use Doctrine\DBAL\ParameterType;
 use Doctrine\ORM\ORMException;
-use Website\Domain\FormContato\Entities\ContatoRecebido;
-use Website\Domain\FormContato\Repositories\ContatoRecebidoRepositoryInterface;
+use Website\Domain\Contato\Entities\ContatoRecebido;
+use Website\Domain\Contato\Repositories\ContatoRecebidoRepositoryInterface;
 use Website\Tests\TestCase\WebsiteTestCase;
-use Website\UseCases\FormContato\SalvarContatoSite\SalvarContatoSiteCommand;
-use Website\UseCases\FormContato\SalvarContatoSite\SalvarContatoSiteCommandHandler;
+use Website\UseCases\Contato\SalvarContatoSite\SalvarContatoSiteCommand;
+use Website\UseCases\Contato\SalvarContatoSite\SalvarContatoSiteCommandHandler;
 
 /**
  * Class SalvarContatoSiteCommandHandlerTest
  * @package Website\Tests\UseCases\FormContato\SalvarContatoSite
- * @coversDefaultClass \Website\UseCases\FormContato\SalvarContatoSite\SalvarContatoSiteCommandHandler
+ * @coversDefaultClass \Website\UseCases\Contato\SalvarContatoSite\SalvarContatoSiteCommandHandler
  */
 class SalvarContatoSiteCommandHandlerTest extends WebsiteTestCase
 {

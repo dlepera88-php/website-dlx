@@ -23,18 +23,18 @@
  * SOFTWARE.
  */
 
-namespace Website\UseCases\FormContato\GetListaContatosRecebidos;
+namespace Website\UseCases\Contato\SalvarContatoSite;
 
 
-use Website\Domain\FormContato\Entities\ContatoRecebido;
-use Website\Domain\FormContato\Repositories\ContatoRecebidoRepositoryInterface;
+use Website\Domain\Contato\Entities\ContatoRecebido;
+use Website\Domain\Contato\Repositories\ContatoRecebidoRepositoryInterface;
 
 /**
- * Class GetListaContatosRecebidosCommandHandler
- * @package Website\UseCases\FormContato\GetListaContatosRecebidos
- * @covers GetListaContatosRecebidosCommandHandlerTest
+ * Class SalvarContatoSiteCommandHandler
+ * @package Website\UseCases\Contato\SalvarContatoSite
+ * @covers SalvarContatoSiteCommandHandlerTest
  */
-class GetListaContatosRecebidosCommandHandler
+class SalvarContatoSiteCommandHandler
 {
     /**
      * @var ContatoRecebidoRepositoryInterface
@@ -42,7 +42,7 @@ class GetListaContatosRecebidosCommandHandler
     private $contato_recebido_repository;
 
     /**
-     * GetListaContatosRecebidosCommandHandler constructor.
+     * SalvarContatoSiteCommandHandler constructor.
      * @param ContatoRecebidoRepositoryInterface $contato_recebido_repository
      */
     public function __construct(ContatoRecebidoRepositoryInterface $contato_recebido_repository)
@@ -51,22 +51,20 @@ class GetListaContatosRecebidosCommandHandler
     }
 
     /**
-     * @param GetListaContatosRecebidosCommand $command
-     * @return array
+     * @param SalvarContatoSiteCommand $command
+     * @return ContatoRecebido
      */
-    public function handle(GetListaContatosRecebidosCommand $command): array
+    public function handle(SalvarContatoSiteCommand $command): ContatoRecebido
     {
-        $lista_contatos_recebidos = $this->contato_recebido_repository->findByLike(
-            $command->getCriteria(),
-            $command->getOrderBy(),
-            $command->getLimit(),
-            $command->getOffset()
-        );
+        $contato_recebido = new ContatoRecebido();
+        $contato_recebido->setAssunto($command->getAssuntoContato());
+        $contato_recebido->setNome($command->getNome());
+        $contato_recebido->setEmail($command->getEmail());
+        $contato_recebido->setTelefone($command->getTelefone());
+        $contato_recebido->setMensagem($command->getMensagem());
 
-        $lista_contatos_recebidos = array_filter($lista_contatos_recebidos, function (ContatoRecebido $contato_recebido) {
-            return !$contato_recebido->isDeletado();
-        });
+        $this->contato_recebido_repository->create($contato_recebido);
 
-        return $lista_contatos_recebidos;
+        return $contato_recebido;
     }
 }

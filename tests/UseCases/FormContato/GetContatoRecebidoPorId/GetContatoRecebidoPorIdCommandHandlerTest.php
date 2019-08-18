@@ -28,16 +28,16 @@ namespace Website\Tests\UseCases\FormContato\GetContatoRecebidoPorId;
 use DLX\Infrastructure\EntityManagerX;
 use Doctrine\DBAL\DBALException;
 use Doctrine\ORM\ORMException;
-use Website\Domain\FormContato\Entities\ContatoRecebido;
-use Website\Domain\FormContato\Repositories\ContatoRecebidoRepositoryInterface;
+use Website\Domain\Contato\Entities\ContatoRecebido;
+use Website\Domain\Contato\Repositories\ContatoRecebidoRepositoryInterface;
 use Website\Tests\TestCase\WebsiteTestCase;
-use Website\UseCases\FormContato\GetContatoRecebidoPorId\GetContatoRecebidoPorIdCommand;
-use Website\UseCases\FormContato\GetContatoRecebidoPorId\GetContatoRecebidoPorIdCommandHandler;
+use Website\UseCases\Contato\GetContatoRecebidoPorId\GetContatoRecebidoPorIdCommand;
+use Website\UseCases\Contato\GetContatoRecebidoPorId\GetContatoRecebidoPorIdCommandHandler;
 
 /**
  * Class GetContatoRecebidoPorIdCommandHandlerTest
  * @package Website\Tests\UseCases\FormContato\GetContatoRecebidoPorId
- * @coversDefaultClass \Website\UseCases\FormContato\GetContatoRecebidoPorId\GetContatoRecebidoPorIdCommandHandler
+ * @coversDefaultClass \Website\UseCases\Contato\GetContatoRecebidoPorId\GetContatoRecebidoPorIdCommandHandler
  */
 class GetContatoRecebidoPorIdCommandHandlerTest extends WebsiteTestCase
 {
