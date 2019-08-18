@@ -41,6 +41,8 @@ class InformacaoContatoTipo extends Entity
     private $nome;
     /** @var bool */
     private $rede_social = false;
+    /** @var string|null */
+    private $prefixo;
     /** @var bool */
     private $deletado = false;
 
@@ -48,11 +50,13 @@ class InformacaoContatoTipo extends Entity
      * InformacaoContatoTipo constructor.
      * @param string $nome
      * @param bool $rede_social
+     * @param string|null $prefixo
      */
-    public function __construct(string $nome, bool $rede_social)
+    public function __construct(string $nome, bool $rede_social, ?string $prefixo = null)
     {
         $this->nome = $nome;
         $this->rede_social = $rede_social;
+        $this->prefixo = $prefixo;
     }
 
     /**
@@ -77,6 +81,14 @@ class InformacaoContatoTipo extends Entity
     public function isRedeSocial(): bool
     {
         return $this->rede_social;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getPrefixo(): ?string
+    {
+        return $this->prefixo;
     }
 
     /**

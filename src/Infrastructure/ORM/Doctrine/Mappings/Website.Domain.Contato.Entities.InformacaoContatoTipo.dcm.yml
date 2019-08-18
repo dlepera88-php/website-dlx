@@ -14,10 +14,14 @@ Website\Domain\Contato\Entities\InformacaoContatoTipo:
         nome:
             type: string
             nullable: false
-            length: 50
+            length: 100
         rede_social:
             type: boolean
             nullable: false
+        prefixo:
+            type: string
+            nullable: true
+            length: 200
         deletado:
             type: boolean
             nullable: false

@@ -34,6 +34,7 @@ CREATE TABLE dlx_informacao_contato_tipo (
     informacao_contato_tipo_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     rede_social BOOL NOT NULL DEFAULT 0,
+    prefixo varchar(200),
     deletado BOOL NOT NULL DEFAULT 0
 ) ENGINE = INNODB;
 
