@@ -11,7 +11,7 @@ Website\Domain\Contato\Entities\InformacaoContatoTipo:
             generator:
                 strategy: auto
     fields:
-        descricao:
+        nome:
             type: string
             nullable: false
             length: 50
