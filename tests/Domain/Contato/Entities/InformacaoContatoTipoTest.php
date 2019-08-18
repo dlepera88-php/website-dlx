@@ -41,10 +41,12 @@ class InformacaoContatoTipoTest extends TestCase
     public function test__construct(): InformacaoContatoTipo
     {
         $descricao = 'Tipo de Informação';
-        $tipo = new InformacaoContatoTipo($descricao);
+        $rede_social = (bool)mt_rand(0,1);
+        $tipo = new InformacaoContatoTipo($descricao, $rede_social);
 
         $this->assertEquals($descricao, $tipo->getNome());
         $this->assertEquals($descricao, (string)$tipo);
+        $this->assertEquals($rede_social, $tipo->isRedeSocial());
 
         return $tipo;
     }

@@ -15,6 +15,9 @@ Website\Domain\Contato\Entities\InformacaoContatoTipo:
             type: string
             nullable: false
             length: 50
+        rede_social:
+            type: boolean
+            nullable: false
         deletado:
             type: boolean
             nullable: false

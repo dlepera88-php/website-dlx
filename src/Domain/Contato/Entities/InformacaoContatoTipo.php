@@ -40,15 +40,19 @@ class InformacaoContatoTipo extends Entity
     /** @var string */
     private $nome;
     /** @var bool */
+    private $rede_social = false;
+    /** @var bool */
     private $deletado = false;
 
     /**
      * InformacaoContatoTipo constructor.
      * @param string $nome
+     * @param bool $rede_social
      */
-    public function __construct(string $nome)
+    public function __construct(string $nome, bool $rede_social)
     {
         $this->nome = $nome;
+        $this->rede_social = $rede_social;
     }
 
     /**
@@ -65,6 +69,14 @@ class InformacaoContatoTipo extends Entity
     public function getNome(): string
     {
         return $this->nome;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isRedeSocial(): bool
+    {
+        return $this->rede_social;
     }
 
     /**
