@@ -10,9 +10,6 @@
     "require-dev": {
         "phpunit/phpunit": "^7.5"
     },
-    "replace": {
-        "dlepera88-php/painel-dlx": "*"
-    },
     "autoload": {
         "psr-4": {
             "Website\\": "src"
