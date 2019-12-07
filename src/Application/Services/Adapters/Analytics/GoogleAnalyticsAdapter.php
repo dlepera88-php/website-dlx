@@ -133,7 +133,7 @@ class GoogleAnalyticsAdapter extends AbstractAnalytics implements AnalyticsAdapt
         for ($reportIndex = 0; $reportIndex < count($reports); $reportIndex++) {
             $report = $reports[$reportIndex];
             $header = $report->getColumnHeader();
-            $dimensionHeaders = $header->getDimensions();
+            $dimensionHeaders = $header->getDimensions() ?? [];
             $metricHeaders = $header->getMetricHeader()->getMetricHeaderEntries();
             $rows = $report->getData()->getRows();
 

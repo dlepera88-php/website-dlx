@@ -1,6 +1,6 @@
 Website\Domain\Contato\Entities\InformacaoContatoTipo:
     type: entity
-    table: dlx_informacao_contato_tipo
+    table: website.InformacaoContatoTipo
     # repositoryClass: Website\Infrastructure\ORM\Doctrine\Repositories\InformacaoContatoTipoRepository
     id:
         id:

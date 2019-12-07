@@ -123,10 +123,10 @@ abstract class AbstractAnalytics
 
     /**
      * Setar todos os parâmetros necessários para gerar o relatório
-     * @param string $id_vista
+     * @param string $id
      * @param DateTime $data_inicial
      * @param DateTime $data_final
-     * @param string ...$metricas
+     * @param string ... $metricas
      */
     public function setParametrosRelatorio(
         string $id,

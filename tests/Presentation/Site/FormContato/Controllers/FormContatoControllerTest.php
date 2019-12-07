@@ -61,8 +61,7 @@ class FormContatoControllerTest extends WebsiteTestCase
         /** @var Container $container */
         $container = $rfx_container->getValue($painel_dlx);
 
-        $controller = $container->get(FormContatoController::class);
-        return $controller;
+        return $container->get(FormContatoController::class);
     }
 
     /**

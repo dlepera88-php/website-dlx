@@ -1,6 +1,6 @@
 Website\Domain\Contato\Entities\ContatoRecebido:
     type: entity
-    table: dlx_contatos_recebidos
+    table: website.ContatoRecebido
     repositoryClass: Website\Infrastructure\ORM\Doctrine\Repositories\ContatoRecebidoRepository
     id:
         id:

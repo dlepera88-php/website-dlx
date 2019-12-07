@@ -1,6 +1,6 @@
 Website\Domain\Contato\Entities\AssuntoContato:
     type: entity
-    table: dlx_assuntos_contato
+    table: website.AssuntoContato
     repositoryClass: Website\Infrastructure\ORM\Doctrine\Repositories\AssuntoContatoRepository
     id:
         id:

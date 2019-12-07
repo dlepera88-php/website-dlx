@@ -60,7 +60,7 @@ return [
             "{$dir_painel_dlx}src/Infrastructure/ORM/Doctrine/Repositories"
         ],
         'conexao' => [
-            'dbname' => 'dlx_dev',
+            'dbname' => 'website',
             'user' => 'root',
             'password' => '$d5Ro0t',
             'host' => 'localhost',

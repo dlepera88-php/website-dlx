@@ -1,6 +1,6 @@
 {
-    "name": "dlepera88-php/website-dlx",
-    "version": "2.0",
+    "name": "painel-dlx/website-dlx",
+    "version": "2.0.0",
     "license": "MIT",
     "require": {
         "painel-dlx/painel-dlx": "^3.0",
@@ -18,7 +18,7 @@
     "autoload-dev": {
         "psr-4": {
             "Website\\Tests\\": "tests",
-            "PainelDLX\\Tests\\": "vendor/dlepera88-php/painel-dlx/tests"
+            "PainelDLX\\Tests\\": "vendor/painel-dlx/painel-dlx/tests"
         }
     }
 }
