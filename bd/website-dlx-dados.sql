@@ -23,7 +23,8 @@ INSERT INTO website.InformacaoContatoTipo (nome, prefixo, rede_social) VALUES
     ('Facebook', 'https://facebook.com/', 1),
     ('Instagram', 'https://instagram.com/', 1),
     ('Twitter', 'https://twitter.com/', 1),
-    ('YouTube', NULL, 1);
+    ('YouTube', NULL, 1),
+    ('Skype', NULL, 0);
 
 
 INSERT INTO website.AssuntoContato (descricao, cor, email) values
