@@ -49,10 +49,8 @@ class WebsiteServiceProvider extends AbstractServiceProvider
     protected $provides = [
         AnalyticsAdapterInterface::class,
         CommandBus::class,
-        VileX::class,
         AssuntoContatoRepositoryInterface::class,
         ContatoRecebidoRepositoryInterface::class,
-        SessionInterface::class,
     ];
 
     /**
@@ -61,8 +59,6 @@ class WebsiteServiceProvider extends AbstractServiceProvider
      * from the ContainerAwareTrait.
      *
      * @return void
-     * @throws SessionAdapterInterfaceInvalidaException
-     * @throws SessionAdapterNaoEncontradoException
      */
     public function register()
     {
@@ -72,11 +68,6 @@ class WebsiteServiceProvider extends AbstractServiceProvider
         $container->add(
             CommandBus::class,
             CommandBusFactory::create($container, Configure::get('app', 'mapping'))
-        );
-
-        $container->add(
-            VileX::class,
-            new VileX
         );
 
         $container->add(
@@ -94,11 +85,6 @@ class WebsiteServiceProvider extends AbstractServiceProvider
         $container->add(
             ContatoRecebidoRepositoryInterface::class,
             RepositoryFactory::create(ContatoRecebido::class)
-        );
-
-        $container->add(
-            SessionInterface::class,
-            SessionFactory::createPHPSession()
         );
     }
 }
